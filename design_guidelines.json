@@ -1,0 +1,60 @@
+{
+  "app_type": "marketing_site",
+  "project_name": "TableWise SaaS - Restaurant Management Platform",
+  "brand_identity": {
+    "name": "TableWise",
+    "tagline": "The Mint-Clean Operating System for Modern Restaurants",
+    "emotional_tone": "Clean, premium, effortless, trustworthy, and culinary-forward",
+    "color_palette": {
+      "primary_mint": "#10B981",
+      "soft_mint_bg": "#F0FDF4",
+      "mint_accent": "#34D399",
+      "dark_slate": "#0F172A",
+      "muted_gray": "#64748B",
+      "surface_white": "#FFFFFF",
+      "border_subtle": "#E2E8F0"
+    },
+    "typography": {
+      "headings": "Plus Jakarta Sans, sans-serif",
+      "body": "Inter, sans-serif"
+    }
+  },
+  "key_features": [
+    "Unified Menu & Inventory Control",
+    "Real-time Table & Order Management",
+    "Kitchen Display System (KDS) & QR Ordering",
+    "Instant Lead Capture with WhatsApp & Email Integration",
+    "Business Impact & ROI Calculator",
+    "Interactive Product Tour & UI Showcase"
+  ],
+  "image_urls": [
+    {
+      "category": "hero_mockup",
+      "image_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwxfHxyZXN0YXVyYW50JTIwZGFzaGJvYXJkJTIwYW5hbHl0aWNzJTIwVUl8ZW58MHx8fHwxNzk0NTU5OTg3fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Clean restaurant analytics and dashboard UI"
+    },
+    {
+      "category": "restaurant_interior",
+      "image_url": "https://images.unsplash.com/photo-1567745218240-95b39d13de05?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzR8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjByZXN0YXVyYW50JTIwaW50ZXJpb3IlMjBkaW5pbmd8ZW58MHx8fHwxNzk0NTU5OTg0fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Modern restaurant dining ambiance"
+    }
+  ],
+  "lead_capture": {
+    "supported_channels": ["Email", "WhatsApp"],
+    "fields": [
+      "restaurant_name",
+      "owner_name",
+      "email",
+      "whatsapp_number",
+      "location_count"
+    ]
+  },
+  "instructions_to_main_agent": "Build a stunning SaaS marketing website for TableWise. Use React, Tailwind CSS, Lucide icons, and Shadcn UI components. Ensure soft mint-green accents (#10B981 / #F0FDF4), white surfaces, rounded controls, and crisp bento grids. Include interactive ROI calculator, feature showcase, live demo modal, and a fully functional lead capture form that simulates sending instant WhatsApp and Email notifications to the sales team with success toasts using sonner. Ensure all interactive elements have data-testid attributes.",
+  "universal_guidelines": [
+    "Never use pure black or pure white without tint",
+    "Ensure high contrast on hover states",
+    "Include data-testid on all interactive elements",
+    "Use Generous spacing (p-8, p-12, gap-8)",
+    "Glassmorphism for sticky navigation with backdrop blur"
+  ]
+}
