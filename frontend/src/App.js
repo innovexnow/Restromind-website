@@ -45,9 +45,22 @@ function App() {
 
   return <div className="site-shell">
     <nav className="nav" data-testid="main-navigation">
-      <button className="brand" onClick={() => scrollTo("top")} data-testid="brand-home"><span className="brand-mark"><Utensils size={18} /></span><span>TableWise</span></button>
+     <button
+  className="brand"
+  onClick={() => scrollTo("top")}
+  data-testid="brand-home"
+  aria-label="RestroMind — go to homepage"
+>
+  <img
+    src="/brand/restromind-logo.jpeg"
+    alt="RestroMind"
+    className="brand-logo"
+  />
+</button>
       <div className={`nav-links ${mobileOpen ? "open" : ""}`}>
-        <button onClick={() => scrollTo("why")} data-testid="nav-why-link">Why TableWise</button>
+        <button onClick={() => scrollTo("why")} data-testid="nav-why-link">
+  Why RestroMind
+</button>
         <button onClick={() => scrollTo("how")} data-testid="nav-how-link">How it works</button>
         <button onClick={() => scrollTo("impact")} data-testid="nav-impact-link">Business impact</button>
         <button className="nav-cta" onClick={() => scrollTo("contact")} data-testid="nav-contact-button">Talk to us <ArrowRight size={15} /></button>
