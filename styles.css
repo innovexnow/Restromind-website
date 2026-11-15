@@ -10,12 +10,28 @@
 }
 
 :root {
+    /* Brand Emerald Green */
     --primary: #0EBE78;
     --primary-dark: #0A9A62;
-    --primary-light: #6ADDB1;
-    --secondary: #2D796D;
-    --secondary-dark: #1F5C53;
-    --accent: #B8F0DB;
+    --primary-light: #4EEDB2;
+    --primary-glow: rgba(14, 190, 120, 0.35);
+    
+    /* Gourmet Saffron & Amber Gold Accent (Warm Culinary & Profit Highlights) */
+    --amber: #FF9F1C;
+    --amber-light: #FBBF24;
+    --amber-dark: #D97706;
+    --amber-bg: rgba(255, 159, 28, 0.12);
+    --amber-glow: rgba(255, 159, 28, 0.35);
+
+    /* Midnight Obsidian & Slate Palette */
+    --obsidian: #080D1A;
+    --obsidian-surface: #0B1322;
+    --obsidian-card: #0F172A;
+    --obsidian-border: rgba(255, 255, 255, 0.08);
+
+    --secondary: #1E293B;
+    --secondary-dark: #0F172A;
+    --accent: #FF9F1C;
     --success: #10B981;
     --danger: #EF4444;
     --dark: #0F172A;
@@ -24,17 +40,21 @@
     --text-light: #64748B;
     --text-lighter: #94A3B8;
     --bg: #ffffff;
-    --bg-light: #F0FAF4;
+    --bg-light: #F8FAFC;
     --bg-gray: #F1F5F9;
     --border: #E2E8F0;
-    --shadow: 0 4px 20px rgba(0,0,0,0.08);
-    --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
-    --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+    --shadow: 0 4px 20px rgba(0,0,0,0.06);
+    --shadow-lg: 0 10px 40px rgba(0,0,0,0.1);
+    --shadow-xl: 0 20px 60px rgba(0,0,0,0.14);
     --radius: 12px;
     --radius-lg: 20px;
     --radius-xl: 28px;
-    --gradient: linear-gradient(135deg, #0EBE78, #6ADDB1, #B8F0DB);
-    --gradient-2: linear-gradient(135deg, #2D796D, #10B981);
+    
+    /* Vibrant Gradients: Emerald Green + Warm Gourmet Amber */
+    --gradient: linear-gradient(135deg, #0EBE78 0%, #2DD4BF 45%, #FF9F1C 100%);
+    --gradient-gold: linear-gradient(135deg, #FF9F1C 0%, #F59E0B 50%, #FBBF24 100%);
+    --gradient-green: linear-gradient(135deg, #0EBE78 0%, #059669 100%);
+    --gradient-2: linear-gradient(135deg, #0EBE78, #FF9F1C);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -298,7 +318,7 @@ a {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #0a1f1a 0%, #0d2b23 50%, #143d32 100%);
+    background: radial-gradient(120% 120% at 50% 0%, #0E1E2E 0%, #09111F 55%, #050811 100%);
     position: relative;
     overflow: hidden;
     padding-top: 80px;
@@ -313,40 +333,40 @@ a {
 .shape {
     position: absolute;
     border-radius: 50%;
-    opacity: 0.05;
+    filter: blur(40px);
 }
 
 .shape-1 {
-    width: 600px;
-    height: 600px;
-    background: var(--primary);
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(14, 190, 120, 0.22) 0%, transparent 70%);
     top: -200px;
     right: -200px;
     animation: floatShape 20s ease-in-out infinite;
 }
 
 .shape-2 {
-    width: 400px;
-    height: 400px;
-    background: var(--accent);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 159, 28, 0.18) 0%, transparent 70%);
     bottom: -100px;
     left: -100px;
     animation: floatShape 15s ease-in-out infinite reverse;
 }
 
 .shape-3 {
-    width: 300px;
-    height: 300px;
-    background: var(--success);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(45, 212, 191, 0.16) 0%, transparent 70%);
     top: 50%;
     left: 50%;
     animation: floatShape 25s ease-in-out infinite;
 }
 
 .shape-4 {
-    width: 200px;
-    height: 200px;
-    background: var(--primary-light);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(251, 191, 36, 0.14) 0%, transparent 70%);
     top: 20%;
     left: 20%;
     animation: floatShape 18s ease-in-out infinite reverse;
@@ -1831,8 +1851,10 @@ section {
 
 /* ---- CTA Section ---- */
 .cta-section {
-    background: linear-gradient(135deg, #0a1f1a, #0d2b23, #143d32);
-    padding: 80px 0;
+    background: radial-gradient(120% 120% at 50% 0%, #0E1E2E 0%, #080D1A 60%, #050811 100%);
+    padding: 90px 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .cta-content {
@@ -1863,9 +1885,10 @@ section {
 
 /* ---- Footer ---- */
 .footer {
-    background: var(--dark);
+    background: #060A14;
     color: rgba(255,255,255,0.7);
-    padding: 60px 0 30px;
+    padding: 70px 0 30px;
+    border-top: 1px solid rgba(255,255,255,0.06);
 }
 
 .footer-grid {
@@ -2935,39 +2958,45 @@ section {
    Live Restaurant Pulse Ticker Strip
    ======================================================== */
 .live-ticker-strip {
-    background: #091a14;
-    border-top: 1px solid rgba(14,190,120,0.25);
-    border-bottom: 1px solid rgba(14,190,120,0.25);
-    padding: 12px 20px;
+    background: #080D1A;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    height: 52px;
     display: flex;
     align-items: center;
-    overflow: hidden;
     position: relative;
     z-index: 10;
+    overflow: hidden;
 }
 
-.ticker-badge {
-    background: rgba(14,190,120,0.2);
-    color: var(--primary-light);
-    border: 1px solid rgba(14,190,120,0.4);
-    font-size: 11px;
-    font-weight: 800;
-    padding: 4px 12px;
-    border-radius: 50px;
+.ticker-badge-fixed {
+    position: relative;
+    z-index: 20;
+    background: #0B1322;
+    padding: 0 24px;
+    height: 100%;
     display: flex;
     align-items: center;
-    gap: 8px;
-    white-space: nowrap;
-    margin-right: 20px;
+    gap: 10px;
+    box-shadow: 15px 0 30px #080D1A;
+    border-right: 1px solid rgba(14, 190, 120, 0.25);
     flex-shrink: 0;
+}
+
+.ticker-badge-text {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    color: #4EEDB2;
+    text-transform: uppercase;
 }
 
 .live-blink-dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #10B981;
-    box-shadow: 0 0 10px #10B981;
+    background: #0EBE78;
+    box-shadow: 0 0 10px #0EBE78;
     animation: pulseDot 1.4s infinite ease-in-out;
 }
 
@@ -2976,11 +3005,20 @@ section {
     50% { transform: scale(1.4); opacity: 0.5; }
 }
 
+.ticker-carousel-mask {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent 0, black 25px, black calc(100% - 30px), transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0, black 25px, black calc(100% - 30px), transparent 100%);
+}
+
 .ticker-track {
-    display: flex;
-    gap: 35px;
+    display: inline-flex;
+    gap: 40px;
     white-space: nowrap;
-    animation: tickerScroll 30s linear infinite;
+    animation: tickerScroll 32s linear infinite;
+    padding-left: 10px;
 }
 
 .ticker-track:hover {
@@ -2995,7 +3033,7 @@ section {
 .ticker-item {
     color: #CBD5E1;
     font-size: 13px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
 }
@@ -3003,16 +3041,20 @@ section {
 .ticker-tag {
     font-size: 10px;
     font-weight: 800;
-    padding: 2px 8px;
-    border-radius: 4px;
+    padding: 3px 9px;
+    border-radius: 5px;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.ticker-tag.new { background: rgba(14,190,120,0.25); color: #34D399; }
-.ticker-tag.chef { background: rgba(245,158,11,0.25); color: #FBBF24; }
-.ticker-tag.print { background: rgba(59,130,246,0.25); color: #60A5FA; }
-.ticker-tag.pay { background: rgba(16,185,129,0.3); color: #10B981; }
-.ticker-tag.stock { background: rgba(239,68,68,0.25); color: #F87171; }
+.ticker-tag.new { background: rgba(14,190,120,0.22); color: #34D399; }
+.ticker-tag.chef { background: rgba(245,158,11,0.22); color: #FBBF24; }
+.ticker-tag.print { background: rgba(59,130,246,0.22); color: #60A5FA; }
+.ticker-tag.upsell { background: rgba(255,159,28,0.25); color: #FF9F1C; border: 1px solid rgba(255,159,28,0.3); }
+.ticker-tag.pay { background: rgba(16,185,129,0.25); color: #10B981; }
+.ticker-tag.crm { background: rgba(37,211,102,0.22); color: #25D366; }
+.ticker-tag.turn { background: rgba(168,85,247,0.22); color: #C084FC; }
+.ticker-tag.direct { background: rgba(245,158,11,0.25); color: #FCD34D; }
 
 /* ========================================================
    Live Chef, Food & Kitchen Operations Simulator Section
@@ -3026,9 +3068,9 @@ section {
 .kitchen-sim-container {
     max-width: 1140px;
     margin: 0 auto;
-    background: #0B1E17;
+    background: #0B1322;
     border-radius: 28px;
-    box-shadow: 0 25px 70px rgba(0,0,0,0.3), 0 0 0 1px rgba(14,190,120,0.25);
+    box-shadow: 0 25px 70px rgba(0,0,0,0.35), 0 0 0 1px rgba(14,190,120,0.25), 0 0 40px rgba(255,159,28,0.06);
     overflow: hidden;
 }
 
@@ -3038,7 +3080,7 @@ section {
     justify-content: space-between;
     align-items: center;
     padding: 16px 28px;
-    background: #071510;
+    background: #060B16;
     border-bottom: 1px solid rgba(255,255,255,0.08);
     flex-wrap: wrap;
     gap: 15px;
@@ -3536,5 +3578,202 @@ section {
 @media (max-width: 480px) {
     .tables-matrix-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========================================================
+   RestroMind Core Benefits Section Styles
+   ======================================================== */
+.section-tag-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 159, 28, 0.12);
+    color: #F59E0B;
+    border: 1px solid rgba(255, 159, 28, 0.35);
+    padding: 8px 22px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+}
+
+.gradient-text-gold {
+    background: linear-gradient(135deg, #FF9F1C 0%, #F59E0B 40%, #FBBF24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.btn-gold {
+    background: linear-gradient(135deg, #FF9F1C 0%, #F59E0B 100%);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(255, 159, 28, 0.4);
+}
+
+.btn-gold:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 159, 28, 0.55);
+    color: #fff;
+}
+
+.benefits-section {
+    padding: 100px 0;
+    background: #FFFFFF;
+    position: relative;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-bottom: 60px;
+}
+
+.benefit-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 32px 28px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(14, 190, 120, 0.4);
+    box-shadow: 0 20px 40px rgba(14, 190, 120, 0.12);
+}
+
+.benefit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.benefit-icon-badge {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.benefit-icon-badge.speed { background: rgba(14, 190, 120, 0.12); }
+.benefit-icon-badge.gold { background: rgba(255, 159, 28, 0.14); }
+.benefit-icon-badge.shield { background: rgba(16, 185, 129, 0.12); }
+.benefit-icon-badge.chef { background: rgba(245, 158, 11, 0.12); }
+.benefit-icon-badge.pay { background: rgba(59, 130, 246, 0.12); }
+.benefit-icon-badge.chat { background: rgba(37, 211, 102, 0.14); }
+
+.benefit-metric-pill {
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.benefit-metric-pill.green {
+    background: rgba(14, 190, 120, 0.12);
+    color: #0EBE78;
+    border: 1px solid rgba(14, 190, 120, 0.25);
+}
+
+.benefit-metric-pill.gold {
+    background: rgba(255, 159, 28, 0.14);
+    color: #D97706;
+    border: 1px solid rgba(255, 159, 28, 0.3);
+}
+
+.benefit-card h3 {
+    font-size: 20px;
+    color: #0F172A;
+    margin-bottom: 12px;
+}
+
+.benefit-card p {
+    font-size: 14px;
+    color: #64748B;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.benefit-highlight {
+    background: #F8FAFC;
+    border: 1px solid #EDF2F7;
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.benefit-highlight i {
+    color: #0EBE78;
+    font-size: 14px;
+}
+
+/* ROI Banner */
+.benefit-roi-banner {
+    background: linear-gradient(135deg, #0B1322 0%, #111C33 100%);
+    border: 1px solid rgba(255, 159, 28, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15), 0 0 35px rgba(255, 159, 28, 0.08);
+    border-radius: 24px;
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.roi-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    color: #FBBF24;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.roi-content h3 {
+    font-size: 26px;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+}
+
+.roi-content p {
+    color: #94A3B8;
+    font-size: 15px;
+    max-width: 600px;
+}
+
+@media (max-width: 992px) {
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    .benefit-roi-banner {
+        padding: 28px 20px;
+        flex-direction: column;
+        text-align: center;
     }
 }
