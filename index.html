@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RestroMind - Smart Restaurant Management Solution</title>
+    <meta name="description" content="RestroMind is a complete restaurant management ecosystem. Digital menu, QR ordering, real-time analytics, inventory management & more. Transform your restaurant today!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="loader-icon">🍽️</div>
+            <div class="loader-text">RestroMind</div>
+            <div class="loader-bar"><div class="loader-bar-inner"></div></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">🍽️</span>
+                <span class="logo-text">Restro<span class="logo-highlight">Mind</span></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#problems" class="nav-link">Problems We Solve</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#user-app" class="nav-link">User App</a>
+                <a href="#admin-app" class="nav-link">Admin App</a>
+                <a href="#contact" class="nav-link nav-cta-link">Contact Us</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="floating-emoji emoji-1">🍕</div>
+            <div class="floating-emoji emoji-2">🍔</div>
+            <div class="floating-emoji emoji-3">🥗</div>
+            <div class="floating-emoji emoji-4">☕</div>
+            <div class="floating-emoji emoji-5">🍜</div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="hero-badge animate-slide-up">
+                    <span class="badge-dot"></span>
+                    #1 Restaurant Management Platform
+                </div>
+                <h1 class="hero-title animate-slide-up delay-1">
+                    Your Restaurant, <br>
+                    <span class="gradient-text">Smarter Than Ever</span>
+                </h1>
+                <p class="hero-description animate-slide-up delay-2">
+                    RestroMind is a complete ecosystem that transforms how restaurants operate. 
+                    From digital menus & QR ordering to real-time analytics & kitchen management — 
+                    everything your restaurant needs, in one powerful platform.
+                </p>
+                <div class="hero-buttons animate-slide-up delay-3">
+                    <a href="#contact" class="btn btn-primary btn-lg">
+                        <i class="fas fa-rocket"></i> Get Started Free
+                    </a>
+                    <a href="#how-it-works" class="btn btn-outline btn-lg">
+                        <i class="fas fa-play-circle"></i> See How It Works
+                    </a>
+                </div>
+                <div class="hero-stats animate-slide-up delay-4">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="500">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-label">Restaurants</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="50000">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-label">Orders Daily</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="98">0</span><span class="stat-suffix">%</span>
+                        <span class="stat-label">Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+                <div class="hero-visual animate-slide-right delay-2">
+                    <div class="dual-phone-mockup">
+                        <!-- User App Phone -->
+                        <div class="phone-mockup phone-hero-user">
+                            <div class="phone-frame">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen phone-screen-img">
+                                    <img src="assets/images/user/explore.png" alt="RestroMind User App" class="screen-img-hero">
+                                    <div class="screen-overlay-gradient"></div>
+                                </div>
+                            </div>
+                            <div class="hero-floating-badge badge-top-left animate-float-slow">
+                                <div class="badge-icon">⚡</div>
+                                <div class="badge-text">
+                                    <strong>Instant QR Order</strong>
+                                    <span>Zero Wait Time</span>
+                                </div>
+                            </div>
+                            <div class="phone-glow"></div>
+                        </div>
+
+                        <!-- Admin App Phone -->
+                        <div class="phone-mockup phone-hero-admin">
+                            <div class="phone-frame small">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen phone-screen-img">
+                                    <img src="assets/images/admin/orders.png" alt="RestroMind Kitchen Orders" class="screen-img-hero">
+                                    <div class="screen-overlay-gradient"></div>
+                                </div>
+                            </div>
+                            <div class="hero-floating-badge badge-bottom-right animate-float-fast">
+                                <div class="badge-icon">👨‍🍳</div>
+                                <div class="badge-text">
+                                    <strong>Kitchen KDS Sync</strong>
+                                    <span class="badge-green">Table #4 • 2 Items</span>
+                                </div>
+                            </div>
+                            <div class="phone-glow"></div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,64 C480,120 960,0 1440,64 L1440,120 L0,120 Z" fill="#fff"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="problems-section" id="problems">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">😫 The Problem</span>
+                <h2 class="section-title">Running a Restaurant is <span class="gradient-text">Stressful</span></h2>
+                <p class="section-subtitle">Every restaurant owner faces these daily challenges. Sound familiar?</p>
+            </div>
+            <div class="problems-grid">
+                <div class="problem-card animate-on-scroll" data-delay="0">
+                    <div class="problem-icon">📝</div>
+                    <h3>Manual Order Taking</h3>
+                    <p>Waiters take orders on paper, miscommunication happens, wrong orders reach the kitchen. Customers get frustrated.</p>
+                    <div class="problem-impact">
+                        <i class="fas fa-exclamation-triangle"></i> 30% orders have errors
+                    </div>
+                </div>
+                <div class="problem-card animate-on-scroll" data-delay="100">
+                    <div class="problem-icon">⏰</div>
+                    <h3>Long Wait Times</h3>
+                    <p>Customers wait 15-20 minutes just to place an order. During peak hours, the chaos multiplies.</p>
+                    <div class="problem-impact">
+                        <i class="fas fa-exclamation-triangle"></i> 40% customers leave due to wait
+                    </div>
+                </div>
+                <div class="problem-card animate-on-scroll" data-delay="200">
+                    <div class="problem-icon">📊</div>
+                    <h3>No Data, No Insights</h3>
+                    <p>Which dish sells most? When is peak hour? What's the daily revenue? No answers — just guesswork.</p>
+                    <div class="problem-impact">
+                        <i class="fas fa-exclamation-triangle"></i> Lost growth opportunities
+                    </div>
+                </div>
+                <div class="problem-card animate-on-scroll" data-delay="300">
+                    <div class="problem-icon">📦</div>
+                    <h3>Inventory Nightmares</h3>
+                    <p>Ingredients run out unexpectedly. Food gets wasted. No tracking of what's in stock and what's needed.</p>
+                    <div class="problem-impact">
+                        <i class="fas fa-exclamation-triangle"></i> 20% food waste daily
+                    </div>
+                </div>
+                <div class="problem-card animate-on-scroll" data-delay="400">
+                    <div class="problem-icon">👨‍🍳</div>
+                    <h3>Staff Mismanagement</h3>
+                    <p>No way to track staff performance, assign roles, or manage shifts. Everything is managed verbally.</p>
+                    <div class="problem-impact">
+                        <i class="fas fa-exclamation-triangle"></i> Low staff productivity
+                    </div>
+                </div>
+                <div class="problem-card animate-on-scroll" data-delay="500">
+                    <div class="problem-icon">💸</div>
+                    <h3>Revenue Leakage</h3>
+                    <p>No proper billing system, manual calculations lead to errors. Money is lost without even knowing.</p>
+                    <div class="problem-impact">
+                        <i class="fas fa-exclamation-triangle"></i> Up to 15% revenue loss
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Arrow Section -->
+    <section class="solution-bridge">
+        <div class="container">
+            <div class="bridge-content animate-on-scroll">
+                <div class="bridge-arrow">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+                <h2>RestroMind <span class="gradient-text">Solves Everything</span></h2>
+                <p>One platform. Every solution. Zero headaches.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">✨ Features</span>
+                <h2 class="section-title">Everything You Need to <span class="gradient-text">Run Smarter</span></h2>
+                <p class="section-subtitle">RestroMind provides a complete suite of tools for both restaurant owners and their customers</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll" data-delay="0">
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">📱</div>
+                    </div>
+                    <h3>QR Code Ordering</h3>
+                    <p>Customers scan QR at their table, browse digital menu, and place orders instantly. No waiter needed!</p>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="50">
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">🍽️</div>
+                    </div>
+                    <h3>Digital Menu Management</h3>
+                    <p>Create beautiful digital menus with images, categories, pricing. Update in real-time — no reprinting!</p>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="100">
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">📊</div>
+                    </div>
+                    <h3>Real-Time Analytics</h3>
+                    <p>Track revenue, popular items, peak hours, customer behavior — all on a beautiful dashboard.</p>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="150">
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">👨‍🍳</div>
+                    </div>
+                    <h3>Kitchen Display System</h3>
+                    <p>Orders go directly to kitchen screens. Chefs see orders in real-time. No more lost order slips!</p>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="200">
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">📦</div>
+                    </div>
+                    <h3>Inventory Management</h3>
+                    <p>Track ingredients, set low-stock alerts, manage suppliers. Never run out of essentials again.</p>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="250">
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">🪑</div>
+                    </div>
+                    <h3>Table & Booking Management</h3>
+                    <p>Manage table status, handle reservations, generate unique QR codes for each table.</p>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="300">
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">👥</div>
+                    </div>
+                    <h3>Staff Management</h3>
+                    <p>Add staff, assign roles (chef, waiter, manager), track performance — all from one dashboard.</p>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="350">
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">💳</div>
+                    </div>
+                    <h3>Payment Integration</h3>
+                    <p>Accept UPI, cards, and digital wallets. Auto-generated bills. Zero payment hassles.</p>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="400">
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">⭐</div>
+                    </div>
+                    <h3>Reviews & Ratings</h3>
+                    <p>Collect customer feedback, respond to reviews, improve service based on real data.</p>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="450">
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">🎁</div>
+                    </div>
+                    <h3>Offers & Loyalty Program</h3>
+                    <p>Create discount coupons, happy hour deals, reward loyal customers with points system.</p>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="500">
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">🔔</div>
+                    </div>
+                    <h3>Push Notifications</h3>
+                    <p>Send promotional offers, order updates, and announcements directly to customers' phones.</p>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="550">
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">📋</div>
+                    </div>
+                    <h3>Reports & Billing</h3>
+                    <p>Generate detailed reports, track transactions, export revenue data — everything automated.</p>
+                </div>
+            </div>
+
+            <!-- Interactive App Experience Showcase Banner -->
+            <div class="screens-marquee-wrapper animate-on-scroll">
+                <div class="marquee-header">
+                    <span class="pill-badge">✨ Live App Preview</span>
+                    <h3 class="marquee-title">Explore Real RestroMind User & Admin Interfaces</h3>
+                    <p class="marquee-sub">Original design components straight from production Flutter apps</p>
+                </div>
+                <div class="screens-carousel">
+                    <div class="screen-showcase-card">
+                        <div class="card-screen-wrap">
+                            <img src="assets/images/user/explore.png" alt="Explore Screen">
+                        </div>
+                        <div class="card-caption">
+                            <strong>Dine-In Menu</strong>
+                            <span>Categories & Featured Picks</span>
+                        </div>
+                    </div>
+                    <div class="screen-showcase-card">
+                        <div class="card-screen-wrap">
+                            <img src="assets/images/user/dish-detail.png" alt="Dish Detail">
+                        </div>
+                        <div class="card-caption">
+                            <strong>Item Customizer</strong>
+                            <span>Portion, Add-ons & Chef Notes</span>
+                        </div>
+                    </div>
+                    <div class="screen-showcase-card">
+                        <div class="card-screen-wrap">
+                            <img src="assets/images/user/cart.png" alt="Cart Screen">
+                        </div>
+                        <div class="card-caption">
+                            <strong>Instant Cart</strong>
+                            <span>Coupons & Split Billing</span>
+                        </div>
+                    </div>
+                    <div class="screen-showcase-card">
+                        <div class="card-screen-wrap">
+                            <img src="assets/images/user/track-order.png" alt="Live Tracking">
+                        </div>
+                        <div class="card-caption">
+                            <strong>Live Order Status</strong>
+                            <span>Kitchen Sync in Real-Time</span>
+                        </div>
+                    </div>
+                    <div class="screen-showcase-card">
+                        <div class="card-screen-wrap">
+                            <img src="assets/images/admin/dashboard-overview.png" alt="Admin Dashboard">
+                        </div>
+                        <div class="card-caption">
+                            <strong>Admin Dashboard</strong>
+                            <span>Live Sales & Performance</span>
+                        </div>
+                    </div>
+                    <div class="screen-showcase-card">
+                        <div class="card-screen-wrap">
+                            <img src="assets/images/admin/orders.png" alt="Live Orders">
+                        </div>
+                        <div class="card-caption">
+                            <strong>Kitchen Orders (KDS)</strong>
+                            <span>Instant Dispatch to Kitchen</span>
+                        </div>
+                    </div>
+                    <div class="screen-showcase-card">
+                        <div class="card-screen-wrap">
+                            <img src="assets/images/admin/menu-management.png" alt="Menu Management">
+                        </div>
+                        <div class="card-caption">
+                            <strong>1-Click Menu Control</strong>
+                            <span>Price, Stock & Dish Toggles</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">🚀 How It Works</span>
+                <h2 class="section-title">Get Started in <span class="gradient-text">3 Simple Steps</span></h2>
+                <p class="section-subtitle">Setting up RestroMind is as easy as ordering food!</p>
+            </div>
+            <div class="steps-container">
+                <div class="step-card animate-on-scroll" data-delay="0">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">📲</div>
+                    <h3>Sign Up & Setup</h3>
+                    <p>Download the RestroMind Admin App, register your restaurant, add your menu, tables, and staff details. Takes just 30 minutes!</p>
+                </div>
+                <div class="step-connector animate-on-scroll">
+                    <div class="connector-line"></div>
+                    <div class="connector-dot"></div>
+                </div>
+                <div class="step-card animate-on-scroll" data-delay="200">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">📎</div>
+                    <h3>Place QR Codes</h3>
+                    <p>Generate unique QR codes for each table from the app. Print and place them on tables. Customers scan to see your digital menu instantly!</p>
+                </div>
+                <div class="step-connector animate-on-scroll">
+                    <div class="connector-line"></div>
+                    <div class="connector-dot"></div>
+                </div>
+                <div class="step-card animate-on-scroll" data-delay="400">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">🎉</div>
+                    <h3>Go Live!</h3>
+                    <p>That's it! Customers order from their phones, kitchen gets orders in real-time, you track everything on your dashboard. Magic! ✨</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User App Section -->
+    <section class="app-showcase user-app-section" id="user-app">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">📱 For Customers</span>
+                <h2 class="section-title">RestroMind <span class="gradient-text">User App</span></h2>
+                <p class="section-subtitle">A seamless dining experience for your customers — from scanning QR to tracking orders</p>
+            </div>
+            <div class="app-showcase-content">
+                <div class="app-features-list animate-on-scroll">
+                    <div class="app-feature-item">
+                        <div class="app-feature-icon">📷</div>
+                        <div>
+                            <h4>Scan & Order</h4>
+                            <p>Scan the QR code at your table and instantly browse the restaurant's digital menu. Place orders without waiting for a waiter.</p>
+                        </div>
+                    </div>
+                    <div class="app-feature-item">
+                        <div class="app-feature-icon">🔍</div>
+                        <div>
+                            <h4>Search & Discover</h4>
+                            <p>Find nearby restaurants, search for your favorite dishes, explore new cuisines — all in one app.</p>
+                        </div>
+                    </div>
+                    <div class="app-feature-item">
+                        <div class="app-feature-icon">📍</div>
+                        <div>
+                            <h4>Real-Time Order Tracking</h4>
+                            <p>Know exactly when your food is being prepared, ready, and served. No more wondering "where's my order?"</p>
+                        </div>
+                    </div>
+                    <div class="app-feature-item">
+                        <div class="app-feature-icon">🪑</div>
+                        <div>
+                            <h4>Book Tables</h4>
+                            <p>Reserve tables in advance. Pick your date, time, and preferred seating. Get instant confirmation.</p>
+                        </div>
+                    </div>
+                    <div class="app-feature-item">
+                        <div class="app-feature-icon">💳</div>
+                        <div>
+                            <h4>Easy Payments</h4>
+                            <p>Pay seamlessly via UPI, credit/debit cards, or digital wallets. Split bills with friends too!</p>
+                        </div>
+                    </div>
+                    <div class="app-feature-item">
+                        <div class="app-feature-icon">🎁</div>
+                        <div>
+                            <h4>Rewards & Offers</h4>
+                            <p>Earn loyalty points on every order. Apply coupons, unlock deals, and get rewarded for being a regular!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-phone-showcase animate-on-scroll delay-2">
+                    <div class="showcase-phones-interactive">
+                        <div class="interactive-screen-tabs">
+                            <button class="screen-tab active" data-screen="explore"><i class="fas fa-compass"></i> Explore</button>
+                            <button class="screen-tab" data-screen="restaurant"><i class="fas fa-store"></i> Menu</button>
+                            <button class="screen-tab" data-screen="dish"><i class="fas fa-utensils"></i> Details</button>
+                            <button class="screen-tab" data-screen="cart"><i class="fas fa-shopping-bag"></i> Cart</button>
+                            <button class="screen-tab" data-screen="track"><i class="fas fa-map-marker-alt"></i> Tracking</button>
+                            <button class="screen-tab" data-screen="success"><i class="fas fa-check-circle"></i> Success</button>
+                        </div>
+                        <div class="showcase-phone-main">
+                            <div class="phone-frame modern">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen phone-screen-img">
+                                    <img id="userAppScreenImg" src="assets/images/user/explore.png" alt="RestroMind User App" class="screen-img-display fade-in">
+                                </div>
+                            </div>
+                            <div class="phone-glow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin App Section -->
+    <section class="app-showcase admin-app-section" id="admin-app">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">🏢 For Restaurant Owners</span>
+                <h2 class="section-title">RestroMind <span class="gradient-text">Admin App</span></h2>
+                <p class="section-subtitle">Your entire restaurant operations — managed from a single powerful dashboard</p>
+            </div>
+            <div class="admin-showcase-content">
+                <div class="admin-dashboard-interactive animate-on-scroll">
+                    <div class="admin-screen-tabs">
+                        <button class="admin-tab active" data-admin-screen="dashboard"><i class="fas fa-tachometer-alt"></i> Live Overview</button>
+                        <button class="admin-tab" data-admin-screen="orders"><i class="fas fa-clipboard-list"></i> Live Orders</button>
+                        <button class="admin-tab" data-admin-screen="print"><i class="fas fa-print"></i> Order Print KDS</button>
+                        <button class="admin-tab" data-admin-screen="menu"><i class="fas fa-book-open"></i> Menu Control</button>
+                        <button class="admin-tab" data-admin-screen="analytics"><i class="fas fa-chart-line"></i> Analytics & Stats</button>
+                        <button class="admin-tab" data-admin-screen="revenue"><i class="fas fa-receipt"></i> Revenue</button>
+                    </div>
+                    <div class="dashboard-device-frame">
+                        <div class="device-notch-bar">
+                            <span class="device-circle red"></span>
+                            <span class="device-circle yellow"></span>
+                            <span class="device-circle green"></span>
+                            <span class="device-title-text"><i class="fas fa-shield-alt"></i> RestroMind Admin Portal</span>
+                        </div>
+                        <div class="device-screen-container">
+                            <img id="adminAppScreenImg" src="assets/images/admin/dashboard-overview.png" alt="RestroMind Admin Dashboard" class="admin-img-display fade-in">
+                        </div>
+                    </div>
+                </div>
+                <div class="admin-features-grid animate-on-scroll">
+                    <div class="admin-feature-card">
+                        <div class="admin-feature-icon">📋</div>
+                        <h4>Live Order Management</h4>
+                        <p>Accept, reject, track orders in real-time. See order details, table numbers, special instructions.</p>
+                    </div>
+                    <div class="admin-feature-card">
+                        <div class="admin-feature-icon">🍽️</div>
+                        <h4>Menu Control</h4>
+                        <p>Add/edit menu items, set prices, upload images, toggle availability — all instantly.</p>
+                    </div>
+                    <div class="admin-feature-card">
+                        <div class="admin-feature-icon">👨‍🍳</div>
+                        <h4>Kitchen Display (KDS)</h4>
+                        <p>Real-time kitchen screen shows orders as they come in. Chefs mark items as preparing/ready.</p>
+                    </div>
+                    <div class="admin-feature-card">
+                        <div class="admin-feature-icon">📊</div>
+                        <h4>Deep Analytics</h4>
+                        <p>Revenue trends, peak hours, customer insights, item performance — data-driven decisions.</p>
+                    </div>
+                    <div class="admin-feature-card">
+                        <div class="admin-feature-icon">📦</div>
+                        <h4>Inventory Tracking</h4>
+                        <p>Track stock levels, get low-stock alerts, manage suppliers. Reduce wastage by up to 40%.</p>
+                    </div>
+                    <div class="admin-feature-card">
+                        <div class="admin-feature-icon">🎯</div>
+                        <h4>Marketing Tools</h4>
+                        <p>Create offers, send push notifications, manage loyalty programs — grow your customer base.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">⚡ The Difference</span>
+                <h2 class="section-title">Before & After <span class="gradient-text">RestroMind</span></h2>
+            </div>
+            <div class="comparison-table animate-on-scroll">
+                <div class="comparison-col before">
+                    <div class="comparison-header">
+                        <span class="comparison-emoji">😩</span>
+                        <h3>Without RestroMind</h3>
+                    </div>
+                    <div class="comparison-item"><i class="fas fa-times"></i> Paper-based order taking</div>
+                    <div class="comparison-item"><i class="fas fa-times"></i> Long customer wait times</div>
+                    <div class="comparison-item"><i class="fas fa-times"></i> No data or analytics</div>
+                    <div class="comparison-item"><i class="fas fa-times"></i> Manual inventory tracking</div>
+                    <div class="comparison-item"><i class="fas fa-times"></i> Miscommunication with kitchen</div>
+                    <div class="comparison-item"><i class="fas fa-times"></i> Printed menus (costly to update)</div>
+                    <div class="comparison-item"><i class="fas fa-times"></i> No customer feedback system</div>
+                    <div class="comparison-item"><i class="fas fa-times"></i> Revenue leakage</div>
+                </div>
+                <div class="comparison-vs animate-on-scroll">
+                    <span>VS</span>
+                </div>
+                <div class="comparison-col after">
+                    <div class="comparison-header">
+                        <span class="comparison-emoji">🚀</span>
+                        <h3>With RestroMind</h3>
+                    </div>
+                    <div class="comparison-item"><i class="fas fa-check"></i> Digital QR-based ordering</div>
+                    <div class="comparison-item"><i class="fas fa-check"></i> Instant ordering — zero wait</div>
+                    <div class="comparison-item"><i class="fas fa-check"></i> Real-time dashboard & analytics</div>
+                    <div class="comparison-item"><i class="fas fa-check"></i> Automated inventory alerts</div>
+                    <div class="comparison-item"><i class="fas fa-check"></i> Direct kitchen display system</div>
+                    <div class="comparison-item"><i class="fas fa-check"></i> Dynamic digital menu (free updates)</div>
+                    <div class="comparison-item"><i class="fas fa-check"></i> Built-in reviews & ratings</div>
+                    <div class="comparison-item"><i class="fas fa-check"></i> Complete revenue tracking</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">💬 Testimonials</span>
+                <h2 class="section-title">Restaurant Owners <span class="gradient-text">Love Us</span></h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card animate-on-scroll" data-delay="0">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"RestroMind completely transformed how we manage our restaurant. Orders go directly to the kitchen, no more confusion. Our revenue increased by 35% in just 2 months!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RK</div>
+                        <div>
+                            <strong>Rajesh Kumar</strong>
+                            <span>Owner, Spice Garden</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-on-scroll" data-delay="150">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"The QR ordering feature is a game-changer! Customers love it, our staff is less stressed, and we can focus on what matters — great food. Best decision ever!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PS</div>
+                        <div>
+                            <strong>Priya Sharma</strong>
+                            <span>Manager, The Food Hub</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-on-scroll" data-delay="300">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Analytics feature gave us insights we never had before. Now we know which dishes to promote, when to run offers, and how to optimize our menu. Incredible tool!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AM</div>
+                        <div>
+                            <strong>Amit Mehta</strong>
+                            <span>Owner, Urban Bites</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">📧 Get In Touch</span>
+                <h2 class="section-title">Ready to <span class="gradient-text">Transform</span> Your Restaurant?</h2>
+                <p class="section-subtitle">Fill out the form below and our team will get back to you within 24 hours</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info animate-on-scroll">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">📧</div>
+                        <h4>Email Us</h4>
+                        <p>restromind@gmail.com</p>
+                    </div>
+                    <div class="contact-info-card">
+                        <div class="contact-icon">📞</div>
+                        <h4>Call Us</h4>
+                        <p>+91 98765 43210</p>
+                    </div>
+                    <div class="contact-info-card">
+                        <div class="contact-icon">📍</div>
+                        <h4>Visit Us</h4>
+                        <p>India</p>
+                    </div>
+                    <div class="contact-social">
+                        <h4>Follow Us</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form animate-on-scroll" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="restaurant">Restaurant Name</label>
+                            <input type="text" id="restaurant" name="restaurant" placeholder="Your restaurant name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" placeholder="Your city">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message / Query *</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us about your restaurant and how we can help you..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-full">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                    <p class="form-note">We'll respond within 24 hours. Your information is safe with us. 🔒</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content animate-on-scroll">
+                <h2>Ready to Make Your Restaurant <span class="gradient-text">Smarter?</span></h2>
+                <p>Join 500+ restaurants already using RestroMind to boost their revenue and customer satisfaction.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-white btn-lg">
+                        <i class="fas fa-rocket"></i> Get Started Today
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <span class="logo-icon">🍽️</span>
+                        <span class="logo-text">Restro<span class="logo-highlight">Mind</span></span>
+                    </a>
+                    <p>The smartest way to manage your restaurant. From digital menus to real-time analytics — everything you need in one platform.</p>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Quick Links</h4>
+                    <a href="#home">Home</a>
+                    <a href="#features">Features</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#user-app">User App</a>
+                    <a href="#admin-app">Admin App</a>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Support</h4>
+                    <a href="#contact">Contact Us</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Download</h4>
+                    <a href="#"><i class="fab fa-google-play"></i> User App (Android)</a>
+                    <a href="#"><i class="fab fa-google-play"></i> Admin App (Android)</a>
+                    <a href="#"><i class="fab fa-apple"></i> Coming Soon on iOS</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 RestroMind. All rights reserved. Made with ❤️ in India</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon">✅</div>
+            <h3>Message Sent Successfully!</h3>
+            <p>Thank you for reaching out. Our team will get back to you within 24 hours.</p>
+            <button class="btn btn-primary" onclick="closeModal()">Got it!</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
