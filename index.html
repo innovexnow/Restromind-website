@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="apple-touch-icon" href="assets/images/logo.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,7 +18,7 @@
     <!-- Preloader -->
     <div id="preloader">
         <div class="loader">
-            <div class="loader-icon">🍽️</div>
+            <img src="assets/images/logo.png" alt="RestroMind" class="loader-logo-img">
             <div class="loader-text">RestroMind</div>
             <div class="loader-bar"><div class="loader-bar-inner"></div></div>
         </div>
@@ -26,7 +28,7 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#" class="nav-logo">
-                <span class="logo-icon">🍽️</span>
+                <img src="assets/images/logo.png" alt="RestroMind Logo" class="logo-img">
                 <span class="logo-text">Restro<span class="logo-highlight">Mind</span></span>
             </a>
             <div class="nav-links" id="navLinks">
@@ -526,15 +528,37 @@
                         <button class="admin-tab" data-admin-screen="analytics"><i class="fas fa-chart-line"></i> Analytics & Stats</button>
                         <button class="admin-tab" data-admin-screen="revenue"><i class="fas fa-receipt"></i> Revenue</button>
                     </div>
-                    <div class="dashboard-device-frame">
-                        <div class="device-notch-bar">
-                            <span class="device-circle red"></span>
-                            <span class="device-circle yellow"></span>
-                            <span class="device-circle green"></span>
-                            <span class="device-title-text"><i class="fas fa-shield-alt"></i> RestroMind Admin Portal</span>
+                    <div class="admin-studio-showcase">
+                        <!-- Left: Real Device Mockup showcasing crisp uncropped screen -->
+                        <div class="admin-device-wrapper">
+                            <div class="admin-phone-frame">
+                                <div class="admin-phone-notch"></div>
+                                <div class="admin-phone-screen">
+                                    <img id="adminAppScreenImg" src="assets/images/admin/dashboard-overview.png" alt="RestroMind Admin Dashboard" class="admin-img-display fade-in">
+                                </div>
+                                <div class="admin-phone-glow"></div>
+                            </div>
                         </div>
-                        <div class="device-screen-container">
-                            <img id="adminAppScreenImg" src="assets/images/admin/dashboard-overview.png" alt="RestroMind Admin Dashboard" class="admin-img-display fade-in">
+
+                        <!-- Right: Dynamic Screen Details & Live Feature Highlights -->
+                        <div class="admin-screen-details" id="adminScreenDetails">
+                            <div class="admin-detail-badge" id="adminDetailBadge">⚡ Live Operations</div>
+                            <h3 class="admin-detail-title" id="adminDetailTitle">Real-Time Restaurant Overview</h3>
+                            <p class="admin-detail-desc" id="adminDetailDesc">
+                                Instant visibility over daily revenue, order volumes, active dining tables, and staff performance in a single synchronized interface.
+                            </p>
+                            <div class="admin-detail-bullets" id="adminDetailBullets">
+                                <div class="admin-bullet"><i class="fas fa-check-circle"></i> <span>Live revenue tracking with automatic payment reconciliation</span></div>
+                                <div class="admin-bullet"><i class="fas fa-check-circle"></i> <span>Instant table occupancy status (Occupied, Available, Reserved)</span></div>
+                                <div class="admin-bullet"><i class="fas fa-check-circle"></i> <span>Peak rush hours heatmap and top-selling dish alerts</span></div>
+                                <div class="admin-bullet"><i class="fas fa-check-circle"></i> <span>Real-time cloud backup with offline fallback mode</span></div>
+                            </div>
+                            <div class="admin-detail-action">
+                                <a href="#contact" class="btn btn-primary btn-md">
+                                    <i class="fas fa-calendar-check"></i> Request Admin Demo
+                                </a>
+                                <span class="admin-meta-note"><i class="fas fa-bolt"></i> Android & iOS Compatible</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -756,7 +780,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#" class="footer-logo">
-                        <span class="logo-icon">🍽️</span>
+                        <img src="assets/images/logo.png" alt="RestroMind Logo" class="logo-img">
                         <span class="logo-text">Restro<span class="logo-highlight">Mind</span></span>
                     </a>
                     <p>The smartest way to manage your restaurant. From digital menus to real-time analytics — everything you need in one platform.</p>

@@ -1,0 +1,29 @@
+name: Deploy to Vercel Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Deploy to Vercel Production
+        run: |
+          if [ -n "${{ secrets.VERCEL_TOKEN }}" ]; then
+            vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
+          else
+            echo "VERCEL_TOKEN not set in GitHub Secrets; native Vercel GitHub integration or local CLI deploy handles it."
+          fi

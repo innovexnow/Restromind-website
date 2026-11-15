@@ -332,8 +332,81 @@ const adminScreenMap = {
     'revenue': 'assets/images/admin/revenue.png'
 };
 
+const adminScreenContent = {
+    'dashboard': {
+        badge: '⚡ Live Operations',
+        title: 'Real-Time Restaurant Overview',
+        desc: 'Instant visibility over daily revenue, order volumes, active dining tables, and staff performance in a single synchronized interface.',
+        bullets: [
+            'Live revenue tracking with automatic payment reconciliation',
+            'Instant table occupancy status (Occupied, Available, Reserved)',
+            'Peak rush hours heatmap and top-selling dish alerts',
+            'Real-time cloud backup with offline fallback mode'
+        ]
+    },
+    'orders': {
+        badge: '📋 Live Kitchen Dispatch',
+        title: 'Real-Time Kitchen Orders (KDS)',
+        desc: 'Eliminate paper tickets and kitchen confusion. Orders appear instantaneously on digital displays with live preparation status.',
+        bullets: [
+            'Instant dine-in, takeaway and delivery categorization',
+            'Live countdown timers and visual alerts for every dish',
+            'One-tap status updates (New, Preparing, Ready, Served)',
+            'Multi-station routing for bar, starters & kitchen'
+        ]
+    },
+    'print': {
+        badge: '🖨️ Thermal KDS Print',
+        title: 'Automated KOT & Bill Printing',
+        desc: 'Seamless Bluetooth & Wi-Fi thermal printer integration. Generates custom kitchen order tokens and customer receipts automatically.',
+        bullets: [
+            'Zero-delay wireless printing upon order confirmation',
+            'Custom bill layouts with restaurant branding & QR UPI payments',
+            'Token sequence numbers for fast counter pickup',
+            'Detailed item modifiers and chef cooking notes included'
+        ]
+    },
+    'menu': {
+        badge: '🍲 Menu Control Studio',
+        title: '1-Click Menu & Pricing Management',
+        desc: 'Take full control over your catalog. Update item prices, toggle dish availability, and introduce seasonal specials instantly.',
+        bullets: [
+            'Mark out-of-stock items in real-time across all customer phones',
+            'Dynamic category organization and custom dish modifiers',
+            'Multi-pricing rules for dine-in, delivery, and happy hours',
+            'Rich dish descriptions, allergen badges and calorie tags'
+        ]
+    },
+    'analytics': {
+        badge: '📈 Smart Intelligence',
+        title: 'Deep Analytics & Business Growth',
+        desc: 'Make data-backed decisions that maximize profits. Identify your most profitable items, slow-moving stock, and customer retention metrics.',
+        bullets: [
+            'Daily, weekly and monthly sales trends with visual growth charts',
+            'Top-performing dishes and profit margin analysis',
+            'Peak dining hours and table turnover speed tracking',
+            'Customer frequency and repeat dining statistics'
+        ]
+    },
+    'revenue': {
+        badge: '💳 Financial Health',
+        title: 'Revenue Reconciliation & Reports',
+        desc: 'Complete financial clarity with automated revenue categorization, cash vs digital payment audits, and 1-click accounting exports.',
+        bullets: [
+            'Cash, UPI, Credit Card and Split-payment breakdown',
+            'GST & tax liability reports ready for accountant filing',
+            'Daily closing register and cashier shift audits',
+            '1-click CSV & PDF export for seamless bookkeeping'
+        ]
+    }
+};
+
 const adminScreenImg = document.getElementById('adminAppScreenImg');
 const adminTabs = document.querySelectorAll('.admin-tab');
+const adminDetailBadge = document.getElementById('adminDetailBadge');
+const adminDetailTitle = document.getElementById('adminDetailTitle');
+const adminDetailDesc = document.getElementById('adminDetailDesc');
+const adminDetailBullets = document.getElementById('adminDetailBullets');
 
 adminTabs.forEach(tab => {
     tab.addEventListener('click', () => {
@@ -346,6 +419,18 @@ adminTabs.forEach(tab => {
             void adminScreenImg.offsetWidth;
             adminScreenImg.src = adminScreenMap[screenKey];
             adminScreenImg.classList.add('fade-in');
+        }
+
+        const content = adminScreenContent[screenKey];
+        if (content) {
+            if (adminDetailBadge) adminDetailBadge.textContent = content.badge;
+            if (adminDetailTitle) adminDetailTitle.textContent = content.title;
+            if (adminDetailDesc) adminDetailDesc.textContent = content.desc;
+            if (adminDetailBullets) {
+                adminDetailBullets.innerHTML = content.bullets
+                    .map(b => `<div class="admin-bullet"><i class="fas fa-check-circle"></i> <span>${b}</span></div>`)
+                    .join('');
+            }
         }
     });
 });

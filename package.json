@@ -1,0 +1,20 @@
+{
+  "name": "restromind-website",
+  "version": "1.0.0",
+  "description": "RestroMind Smart Restaurant Management Platform",
+  "main": "index.html",
+  "scripts": {
+    "deploy": "bash deploy.sh",
+    "push": "git add . && git commit -m 'update' && git push origin main",
+    "vercel": "vercel deploy --prod --yes"
+  },
+  "keywords": [
+    "restromind",
+    "restaurant-management",
+    "qr-ordering",
+    "digital-menu",
+    "pos"
+  ],
+  "author": "RestroMind Team",
+  "license": "MIT"
+}
