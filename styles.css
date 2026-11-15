@@ -14,24 +14,12 @@
     --primary: #0EBE78;
     --primary-dark: #0A9A62;
     --primary-light: #4EEDB2;
+    --primary-soft: #E8F8F2;
     --primary-glow: rgba(14, 190, 120, 0.35);
-    
-    /* Gourmet Saffron & Amber Gold Accent (Warm Culinary & Profit Highlights) */
-    --amber: #FF9F1C;
-    --amber-light: #FBBF24;
-    --amber-dark: #D97706;
-    --amber-bg: rgba(255, 159, 28, 0.12);
-    --amber-glow: rgba(255, 159, 28, 0.35);
 
-    /* Midnight Obsidian & Slate Palette */
-    --obsidian: #080D1A;
-    --obsidian-surface: #0B1322;
-    --obsidian-card: #0F172A;
-    --obsidian-border: rgba(255, 255, 255, 0.08);
-
-    --secondary: #1E293B;
-    --secondary-dark: #0F172A;
-    --accent: #FF9F1C;
+    --secondary: #0D3B2E;
+    --secondary-dark: #08261E;
+    --accent: #4EEDB2;
     --success: #10B981;
     --danger: #EF4444;
     --dark: #0F172A;
@@ -50,11 +38,10 @@
     --radius-lg: 20px;
     --radius-xl: 28px;
     
-    /* Vibrant Gradients: Emerald Green + Warm Gourmet Amber */
-    --gradient: linear-gradient(135deg, #0EBE78 0%, #2DD4BF 45%, #FF9F1C 100%);
-    --gradient-gold: linear-gradient(135deg, #FF9F1C 0%, #F59E0B 50%, #FBBF24 100%);
-    --gradient-green: linear-gradient(135deg, #0EBE78 0%, #059669 100%);
-    --gradient-2: linear-gradient(135deg, #0EBE78, #FF9F1C);
+    /* Pure Green & Mint Gradients */
+    --gradient: linear-gradient(135deg, #0EBE78 0%, #1BD689 50%, #4EEDB2 100%);
+    --gradient-green: linear-gradient(135deg, #0EBE78 0%, #0A9A62 100%);
+    --gradient-2: linear-gradient(135deg, #0EBE78, #4EEDB2);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -348,7 +335,7 @@ a {
 .shape-2 {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(255, 159, 28, 0.18) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(78, 237, 178, 0.2) 0%, transparent 70%);
     bottom: -100px;
     left: -100px;
     animation: floatShape 15s ease-in-out infinite reverse;
@@ -357,7 +344,7 @@ a {
 .shape-3 {
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(45, 212, 191, 0.16) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(14, 190, 120, 0.18) 0%, transparent 70%);
     top: 50%;
     left: 50%;
     animation: floatShape 25s ease-in-out infinite;
@@ -366,7 +353,7 @@ a {
 .shape-4 {
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, rgba(251, 191, 36, 0.14) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(78, 237, 178, 0.15) 0%, transparent 70%);
     top: 20%;
     left: 20%;
     animation: floatShape 18s ease-in-out infinite reverse;
@@ -3050,11 +3037,11 @@ section {
 .ticker-tag.new { background: rgba(14,190,120,0.22); color: #34D399; }
 .ticker-tag.chef { background: rgba(245,158,11,0.22); color: #FBBF24; }
 .ticker-tag.print { background: rgba(59,130,246,0.22); color: #60A5FA; }
-.ticker-tag.upsell { background: rgba(255,159,28,0.25); color: #FF9F1C; border: 1px solid rgba(255,159,28,0.3); }
+.ticker-tag.upsell { background: rgba(14,190,120,0.22); color: #34D399; border: 1px solid rgba(14,190,120,0.3); }
 .ticker-tag.pay { background: rgba(16,185,129,0.25); color: #10B981; }
 .ticker-tag.crm { background: rgba(37,211,102,0.22); color: #25D366; }
-.ticker-tag.turn { background: rgba(168,85,247,0.22); color: #C084FC; }
-.ticker-tag.direct { background: rgba(245,158,11,0.25); color: #FCD34D; }
+.ticker-tag.turn { background: rgba(14,190,120,0.22); color: #4EEDB2; }
+.ticker-tag.direct { background: rgba(14,190,120,0.22); color: #34D399; }
 
 /* ========================================================
    Live Chef, Food & Kitchen Operations Simulator Section
@@ -3070,7 +3057,7 @@ section {
     margin: 0 auto;
     background: #0B1322;
     border-radius: 28px;
-    box-shadow: 0 25px 70px rgba(0,0,0,0.35), 0 0 0 1px rgba(14,190,120,0.25), 0 0 40px rgba(255,159,28,0.06);
+    box-shadow: 0 25px 70px rgba(0,0,0,0.35), 0 0 0 1px rgba(14,190,120,0.25), 0 0 40px rgba(14,190,120,0.1);
     overflow: hidden;
 }
 
@@ -3584,40 +3571,6 @@ section {
 /* ========================================================
    RestroMind Core Benefits Section Styles
    ======================================================== */
-.section-tag-gold {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255, 159, 28, 0.12);
-    color: #F59E0B;
-    border: 1px solid rgba(255, 159, 28, 0.35);
-    padding: 8px 22px;
-    border-radius: 50px;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    margin-bottom: 16px;
-}
-
-.gradient-text-gold {
-    background: linear-gradient(135deg, #FF9F1C 0%, #F59E0B 40%, #FBBF24 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.btn-gold {
-    background: linear-gradient(135deg, #FF9F1C 0%, #F59E0B 100%);
-    color: #fff;
-    box-shadow: 0 6px 20px rgba(255, 159, 28, 0.4);
-}
-
-.btn-gold:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(255, 159, 28, 0.55);
-    color: #fff;
-}
-
 .benefits-section {
     padding: 100px 0;
     background: #FFFFFF;
@@ -3645,7 +3598,7 @@ section {
 
 .benefit-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(14, 190, 120, 0.4);
+    border-color: rgba(14, 190, 120, 0.45);
     box-shadow: 0 20px 40px rgba(14, 190, 120, 0.12);
 }
 
@@ -3664,14 +3617,8 @@ section {
     align-items: center;
     justify-content: center;
     font-size: 24px;
+    background: rgba(14, 190, 120, 0.12);
 }
-
-.benefit-icon-badge.speed { background: rgba(14, 190, 120, 0.12); }
-.benefit-icon-badge.gold { background: rgba(255, 159, 28, 0.14); }
-.benefit-icon-badge.shield { background: rgba(16, 185, 129, 0.12); }
-.benefit-icon-badge.chef { background: rgba(245, 158, 11, 0.12); }
-.benefit-icon-badge.pay { background: rgba(59, 130, 246, 0.12); }
-.benefit-icon-badge.chat { background: rgba(37, 211, 102, 0.14); }
 
 .benefit-metric-pill {
     font-size: 11px;
@@ -3686,12 +3633,6 @@ section {
     background: rgba(14, 190, 120, 0.12);
     color: #0EBE78;
     border: 1px solid rgba(14, 190, 120, 0.25);
-}
-
-.benefit-metric-pill.gold {
-    background: rgba(255, 159, 28, 0.14);
-    color: #D97706;
-    border: 1px solid rgba(255, 159, 28, 0.3);
 }
 
 .benefit-card h3 {
@@ -3728,9 +3669,9 @@ section {
 
 /* ROI Banner */
 .benefit-roi-banner {
-    background: linear-gradient(135deg, #0B1322 0%, #111C33 100%);
-    border: 1px solid rgba(255, 159, 28, 0.3);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15), 0 0 35px rgba(255, 159, 28, 0.08);
+    background: linear-gradient(135deg, #07231A 0%, #03140E 100%);
+    border: 1px solid rgba(14, 190, 120, 0.35);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12), 0 0 35px rgba(14, 190, 120, 0.1);
     border-radius: 24px;
     padding: 40px 48px;
     display: flex;
@@ -3744,7 +3685,7 @@ section {
     display: inline-block;
     font-size: 11px;
     font-weight: 800;
-    color: #FBBF24;
+    color: #4EEDB2;
     letter-spacing: 1px;
     margin-bottom: 8px;
 }
@@ -3756,7 +3697,7 @@ section {
 }
 
 .roi-content p {
-    color: #94A3B8;
+    color: rgba(255, 255, 255, 0.75);
     font-size: 15px;
     max-width: 600px;
 }
