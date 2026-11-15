@@ -35,6 +35,7 @@
                 <a href="#home" class="nav-link active">Home</a>
                 <a href="#problems" class="nav-link">Problems We Solve</a>
                 <a href="#features" class="nav-link">Features</a>
+                <a href="#live-kitchen" class="nav-link">Live Kitchen</a>
                 <a href="#how-it-works" class="nav-link">How It Works</a>
                 <a href="#user-app" class="nav-link">User App</a>
                 <a href="#admin-app" class="nav-link">Admin App</a>
@@ -147,6 +148,24 @@
             </svg>
         </div>
     </section>
+
+    <!-- Live Restaurant Operations Pulse Ticker -->
+    <div class="live-ticker-strip">
+        <div class="ticker-badge">
+            <span class="live-blink-dot"></span> LIVE PULSE
+        </div>
+        <div class="ticker-track">
+            <div class="ticker-item"><span class="ticker-tag new">NEW ORDER</span> Table #4 ordered 1x Truffle Pizza, 2x Cold Brews (+₹780)</div>
+            <div class="ticker-item"><span class="ticker-tag chef">CHEF KDS</span> Station 1: Chef Vikram cooking "Paneer Tikka" (3m left)</div>
+            <div class="ticker-item"><span class="ticker-tag print">AUTO KOT</span> Token #42 printed on Kitchen Thermal Station</div>
+            <div class="ticker-item"><span class="ticker-tag pay">PAID</span> Table #7 completed UPI Payment ₹1,420 • 5/5 ⭐ Review</div>
+            <div class="ticker-item"><span class="ticker-tag stock">INVENTORY</span> Auto-deducted 400g Cheese & 2kg Rice from stock</div>
+            <!-- loop elements -->
+            <div class="ticker-item"><span class="ticker-tag new">NEW ORDER</span> Table #2 ordered 2x Butter Chicken, 4x Garlic Naan (+₹940)</div>
+            <div class="ticker-item"><span class="ticker-tag chef">CHEF KDS</span> Station 2: Chef Amit marked "Truffle Risotto" Ready to Serve</div>
+            <div class="ticker-item"><span class="ticker-tag pay">PAID</span> Table #5 settled bill via QR (+₹620)</div>
+        </div>
+    </div>
 
     <!-- Problems Section -->
     <section class="problems-section" id="problems">
@@ -386,6 +405,197 @@
                         <div class="card-caption">
                             <strong>1-Click Menu Control</strong>
                             <span>Price, Stock & Dish Toggles</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Chef, Food & Kitchen Operations Simulator -->
+    <section class="live-kitchen-section" id="live-kitchen">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">👨‍🍳 Live Kitchen & Operations</span>
+                <h2 class="section-title">See RestroMind in <span class="gradient-text">Live Action</span></h2>
+                <p class="section-subtitle">Watch how orders travel from customer QR scans directly into chef frying pans and real-time manager dashboards</p>
+            </div>
+
+            <div class="kitchen-sim-container animate-on-scroll">
+                <!-- Top Console Header -->
+                <div class="sim-header-bar">
+                    <div class="sim-brand-title">
+                        <span class="sim-status-dot"></span>
+                        <strong>Kitchen KDS & Operations Simulator</strong>
+                        <span class="sim-pill">Auto-Sync Enabled</span>
+                    </div>
+                    <div class="sim-action-controls">
+                        <span class="sim-orders-counter"><i class="fas fa-receipt"></i> Orders Today: <strong id="simOrderCount">142</strong></span>
+                        <button class="btn btn-sm btn-primary" id="btnSimulateOrder">
+                            <i class="fas fa-plus-circle"></i> Simulate New Order!
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Main Simulator Grid: Chef KDS + Floor Management -->
+                <div class="sim-main-grid">
+                    <!-- Column 1: Live Animated Chef & Kitchen Station -->
+                    <div class="sim-station-card chef-station">
+                        <div class="station-header">
+                            <div class="station-info">
+                                <span class="station-icon">👨‍🍳</span>
+                                <div>
+                                    <h4>Station #1: Master Chef Station</h4>
+                                    <span class="station-sub">Live Kitchen Display System (KDS)</span>
+                                </div>
+                            </div>
+                            <span class="station-badge cooking" id="chefStatusBadge">🔥 Cooking Active</span>
+                        </div>
+
+                        <!-- Animated Cooking Stage -->
+                        <div class="chef-cooking-stage">
+                            <div class="animated-chef-avatar">
+                                <div class="chef-avatar-wrapper">
+                                    <div class="chef-hat">👨‍🍳</div>
+                                    <div class="cooking-pan-rig">
+                                        <div class="pan-handle"></div>
+                                        <div class="pan-base">
+                                            <div class="food-sizzle-dish" id="activeFoodDish">🍛</div>
+                                            <div class="steam-vapors">
+                                                <span class="steam s1">♨️</span>
+                                                <span class="steam s2">♨️</span>
+                                                <span class="steam s3">♨️</span>
+                                            </div>
+                                        </div>
+                                        <div class="flame-rig">
+                                            <span class="flame f1">🔥</span>
+                                            <span class="flame f2">🔥</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="current-dish-banner">
+                                <span class="dish-status-label">CURRENTLY PREPARING</span>
+                                <h3 class="dish-title" id="currentDishTitle">Butter Chicken & Garlic Naan</h3>
+                                <div class="dish-meta-row">
+                                    <span><i class="fas fa-chair"></i> <strong id="dishTable">Table #4</strong></span>
+                                    <span><i class="fas fa-stopwatch"></i> <strong id="dishTimer">03:45</strong> left</span>
+                                    <span class="chef-name"><i class="fas fa-user-check"></i> Chef Rajesh</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Live Order Tickets Queue -->
+                        <div class="kds-tickets-queue">
+                            <h5><i class="fas fa-list-ul"></i> Incoming Kitchen Queue (<span id="queueLength">3</span> orders)</h5>
+                            <div class="tickets-list" id="ticketsList">
+                                <div class="ticket-card preparing">
+                                    <div class="ticket-top">
+                                        <strong>#204 • Table 4</strong>
+                                        <span class="ticket-status-pill in-prep">In Pan (3m)</span>
+                                    </div>
+                                    <div class="ticket-items">1x Butter Chicken, 2x Garlic Naan</div>
+                                </div>
+                                <div class="ticket-card queued">
+                                    <div class="ticket-top">
+                                        <strong>#205 • Table 2</strong>
+                                        <span class="ticket-status-pill in-queue">In Queue</span>
+                                    </div>
+                                    <div class="ticket-items">1x Truffle Mushroom Pizza, 1x Coke</div>
+                                </div>
+                                <div class="ticket-card queued">
+                                    <div class="ticket-top">
+                                        <strong>#206 • Table 7</strong>
+                                        <span class="ticket-status-pill in-queue">In Queue</span>
+                                    </div>
+                                    <div class="ticket-items">1x Paneer Tikka Platter, 2x Mojitos</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Live Dining Floor & Table Management -->
+                    <div class="sim-station-card floor-station">
+                        <div class="station-header">
+                            <div class="station-info">
+                                <span class="station-icon">🏢</span>
+                                <div>
+                                    <h4>Floor & Table Management</h4>
+                                    <span class="station-sub">Click any table to inspect live status</span>
+                                </div>
+                            </div>
+                            <span class="station-badge floor-live" id="floorOccupancyBadge">🟢 6/8 Occupied</span>
+                        </div>
+
+                        <!-- Table Grid -->
+                        <div class="tables-matrix-grid" id="tablesGrid">
+                            <div class="table-box occupied active" data-table="1">
+                                <div class="table-num">T-1</div>
+                                <div class="table-icon">👥 2</div>
+                                <span class="t-badge cooking">Dining</span>
+                            </div>
+                            <div class="table-box occupied" data-table="2">
+                                <div class="table-num">T-2</div>
+                                <div class="table-icon">👥 4</div>
+                                <span class="t-badge queue">In Kitchen</span>
+                            </div>
+                            <div class="table-box available" data-table="3">
+                                <div class="table-num">T-3</div>
+                                <div class="table-icon">🪑 Free</div>
+                                <span class="t-badge free">Available</span>
+                            </div>
+                            <div class="table-box occupied" data-table="4">
+                                <div class="table-num">T-4</div>
+                                <div class="table-icon">👥 3</div>
+                                <span class="t-badge cooking">Chef Cooking</span>
+                            </div>
+                            <div class="table-box billing" data-table="5">
+                                <div class="table-num">T-5</div>
+                                <div class="table-icon">💳 Bill</div>
+                                <span class="t-badge bill">Paying</span>
+                            </div>
+                            <div class="table-box available" data-table="6">
+                                <div class="table-num">T-6</div>
+                                <div class="table-icon">🪑 Free</div>
+                                <span class="t-badge free">Available</span>
+                            </div>
+                            <div class="table-box occupied" data-table="7">
+                                <div class="table-num">T-7</div>
+                                <div class="table-icon">👥 4</div>
+                                <span class="t-badge dining">Eating</span>
+                            </div>
+                            <div class="table-box reserved" data-table="8">
+                                <div class="table-num">T-8</div>
+                                <div class="table-icon">⭐ 8PM</div>
+                                <span class="t-badge rsv">Reserved</span>
+                            </div>
+                        </div>
+
+                        <!-- Selected Table Inspector -->
+                        <div class="table-inspector-card" id="tableInspector">
+                            <div class="inspector-top">
+                                <div>
+                                    <span class="ins-label">ACTIVE TABLE DETAILS</span>
+                                    <h4 id="insTableTitle">Table #1 (Window Seating)</h4>
+                                </div>
+                                <span class="ins-status-tag" id="insTableStatus">Dining • 2 Guests</span>
+                            </div>
+                            <div class="inspector-order-row">
+                                <div class="ins-col">
+                                    <small>CURRENT ORDER</small>
+                                    <strong id="insTableOrder">2x Margherita Pizza, 1x Iced Tea</strong>
+                                </div>
+                                <div class="ins-col right">
+                                    <small>BILL AMOUNT</small>
+                                    <strong class="ins-price" id="insTableBill">₹680</strong>
+                                </div>
+                            </div>
+                            <div class="inspector-footer">
+                                <span><i class="fas fa-user-tie"></i> Waiter: Rohit M.</span>
+                                <span><i class="fas fa-clock"></i> Seated 34 mins ago</span>
+                                <span class="status-verified"><i class="fas fa-check-double"></i> UPI QR Ready</span>
+                            </div>
                         </div>
                     </div>
                 </div>

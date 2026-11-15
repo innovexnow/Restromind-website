@@ -454,3 +454,124 @@ document.querySelectorAll('.feature-card, .problem-card, .step-card, .screen-sho
     });
 });
 
+
+// ========================================================
+// Live Kitchen, Chef & Operations Simulation
+// ========================================================
+let chefSecondsLeft = 225; // 3m 45s
+const dishTimerEl = document.getElementById('dishTimer');
+
+setInterval(() => {
+    if (dishTimerEl) {
+        chefSecondsLeft--;
+        if (chefSecondsLeft < 10) chefSecondsLeft = 240;
+        const mins = Math.floor(chefSecondsLeft / 60);
+        const secs = chefSecondsLeft % 60;
+        dishTimerEl.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+}, 1000);
+
+// Table Matrix Data
+const tableData = {
+    1: { title: 'Table #1 (Window Booth)', status: 'Dining • 2 Guests', order: '2x Margherita Pizza, 1x Iced Tea', bill: '₹680', waiter: 'Rohit M.', time: 'Seated 34 mins ago' },
+    2: { title: 'Table #2 (Center Lounge)', status: 'In Kitchen • 4 Guests', order: '1x Truffle Mushroom Pizza, 1x Coke', bill: '₹890', waiter: 'Sneha P.', time: 'Ordered 6 mins ago' },
+    3: { title: 'Table #3 (Garden Patio)', status: '🟢 Available', order: 'Cleaned & Sanitized • Ready for seating', bill: '₹0', waiter: 'Unassigned', time: 'Vacated 4 mins ago' },
+    4: { title: 'Table #4 (Private Booth)', status: '🔥 Chef Cooking • 3 Guests', order: '1x Butter Chicken, 2x Garlic Naan', bill: '₹940', waiter: 'Rohit M.', time: 'Cooking in station #1' },
+    5: { title: 'Table #5 (Family Dining)', status: '💳 Bill Requested • 5 Guests', order: 'Full Course Dinner (5 items)', bill: '₹2,480', waiter: 'Aman K.', time: 'Settling via QR Code' },
+    6: { title: 'Table #6 (Bar Corner)', status: '🟢 Available', order: 'Ready for walk-in or reservation', bill: '₹0', waiter: 'Unassigned', time: 'Ready' },
+    7: { title: 'Table #7 (High Top)', status: 'Dining • 4 Guests', order: '1x Paneer Tikka Platter, 2x Mojitos', bill: '₹1,150', waiter: 'Sneha P.', time: 'Seated 18 mins ago' },
+    8: { title: 'Table #8 (VIP Lounge)', status: '⭐ Reserved (8:00 PM)', order: 'Reserved for Rahul Sharma (Party of 6)', bill: '₹0', waiter: 'Aman K.', time: 'Arriving in 35 mins' }
+};
+
+const tableBoxes = document.querySelectorAll('.table-box');
+const insTitle = document.getElementById('insTableTitle');
+const insStatus = document.getElementById('insTableStatus');
+const insOrder = document.getElementById('insTableOrder');
+const insBill = document.getElementById('insTableBill');
+
+tableBoxes.forEach(box => {
+    box.addEventListener('click', () => {
+        tableBoxes.forEach(b => b.classList.remove('active'));
+        box.classList.add('active');
+        
+        const num = box.getAttribute('data-table');
+        const data = tableData[num];
+        if (data) {
+            if (insTitle) insTitle.textContent = data.title;
+            if (insStatus) insStatus.textContent = data.status;
+            if (insOrder) insOrder.textContent = data.order;
+            if (insBill) insBill.textContent = data.bill;
+        }
+    });
+});
+
+// Simulate New Order Button
+const btnSimulate = document.getElementById('btnSimulateOrder');
+const simOrderCountEl = document.getElementById('simOrderCount');
+const ticketsListEl = document.getElementById('ticketsList');
+const activeFoodDishEl = document.getElementById('activeFoodDish');
+const currentDishTitleEl = document.getElementById('currentDishTitle');
+const dishTableEl = document.getElementById('dishTable');
+const queueLengthEl = document.getElementById('queueLength');
+
+const sampleDishes = [
+    { dish: 'Woodfire Truffle Pizza', emoji: '🍕', price: '₹580', table: 'Table #3' },
+    { dish: 'Paneer Butter Masala & Kulcha', emoji: '🥘', price: '₹420', table: 'Table #6' },
+    { dish: 'Crispy Veg Dimsum Platter', emoji: '🥟', price: '₹340', table: 'Table #1' },
+    { dish: 'Smoked BBQ Chicken Wings', emoji: '🍗', price: '₹490', table: 'Table #5' },
+    { dish: 'Classic Margherita with Mozzarella', emoji: '🍕', price: '₹399', table: 'Table #2' }
+];
+
+let orderId = 207;
+
+if (btnSimulate) {
+    btnSimulate.addEventListener('click', () => {
+        const randomItem = sampleDishes[Math.floor(Math.random() * sampleDishes.length)];
+        
+        // 1. Increment orders today
+        if (simOrderCountEl) {
+            let count = parseInt(simOrderCountEl.textContent, 10) || 142;
+            simOrderCountEl.textContent = count + 1;
+        }
+
+        // 2. Animate chef station
+        if (activeFoodDishEl) {
+            activeFoodDishEl.textContent = randomItem.emoji;
+            activeFoodDishEl.style.transform = 'scale(1.4)';
+            setTimeout(() => activeFoodDishEl.style.transform = '', 400);
+        }
+        if (currentDishTitleEl) currentDishTitleEl.textContent = randomItem.dish;
+        if (dishTableEl) dishTableEl.textContent = randomItem.table;
+
+        chefSecondsLeft = 180; // reset timer to 3 mins
+
+        // 3. Add to KDS tickets list
+        if (ticketsListEl) {
+            const ticket = document.createElement('div');
+            ticket.className = 'ticket-card flash queued';
+            ticket.innerHTML = `
+                <div class="ticket-top">
+                    <strong>#${orderId} • ${randomItem.table}</strong>
+                    <span class="ticket-status-pill in-prep">Just In!</span>
+                </div>
+                <div class="ticket-items">1x ${randomItem.dish} (${randomItem.price})</div>
+            `;
+            ticketsListEl.prepend(ticket);
+            orderId++;
+
+            // limit visible queue to 4 items
+            if (ticketsListEl.children.length > 4) {
+                ticketsListEl.lastElementChild.remove();
+            }
+            if (queueLengthEl) queueLengthEl.textContent = ticketsListEl.children.length;
+        }
+
+        // 4. Temporary button feedback
+        btnSimulate.innerHTML = '<i class="fas fa-check"></i> Order Fired to Pan!';
+        btnSimulate.style.background = '#10B981';
+        setTimeout(() => {
+            btnSimulate.innerHTML = '<i class="fas fa-plus-circle"></i> Simulate New Order!';
+            btnSimulate.style.background = '';
+        }, 1500);
+    });
+}
