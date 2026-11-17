@@ -4,6 +4,7 @@
   "description": "RestroMind Smart Restaurant Management Platform",
   "main": "index.html",
   "scripts": {
+    "dev": "node local-server.js",
     "deploy": "bash deploy.sh",
     "push": "git add . && git commit -m 'update' && git push origin main",
     "vercel": "vercel deploy --prod --yes"
@@ -16,5 +17,8 @@
     "pos"
   ],
   "author": "RestroMind Team",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
 }

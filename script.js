@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
         setTimeout(() => {
             preloader.style.display = 'none';
         }, 500);
-    }, 2000);
+    }, 1000);
 });
 
 // ---- Navbar Scroll Effect ----
@@ -92,6 +92,109 @@ document.querySelectorAll('.animate-on-scroll').forEach(el => {
     observer.observe(el);
 });
 
+// ---- App Screen Preview Auto-Scroll ----
+const screensCarousel = document.querySelector('.screens-carousel');
+if (screensCarousel) {
+    const previewCards = [...screensCarousel.querySelectorAll('.screen-showcase-card')];
+    let highlightFrame;
+
+    const highlightCenteredCard = () => {
+        if (highlightFrame) return;
+        highlightFrame = requestAnimationFrame(() => {
+            highlightFrame = undefined;
+            const carouselCenter = screensCarousel.getBoundingClientRect().left + screensCarousel.clientWidth / 2;
+            let closestCard;
+            let closestDistance = Infinity;
+
+            previewCards.forEach(card => {
+                const cardRect = card.getBoundingClientRect();
+                const distance = Math.abs(cardRect.left + cardRect.width / 2 - carouselCenter);
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestCard = card;
+                }
+            });
+
+            previewCards.forEach(card => card.classList.toggle('is-active', card === closestCard));
+        });
+    };
+
+    screensCarousel.addEventListener('scroll', highlightCenteredCard, { passive: true });
+    window.addEventListener('resize', highlightCenteredCard);
+    highlightCenteredCard();
+}
+
+if (screensCarousel && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let carouselTimer;
+    let interactionTimer;
+    let carouselIsVisible = false;
+    let pointerIsOverCarousel = false;
+    let carouselHasFocus = false;
+
+    const stopCarousel = () => {
+        clearInterval(carouselTimer);
+        carouselTimer = undefined;
+    };
+
+    const startCarousel = () => {
+        if (!carouselIsVisible || document.hidden || pointerIsOverCarousel || carouselHasFocus || carouselTimer) return;
+        carouselTimer = setInterval(() => {
+            const maxScroll = screensCarousel.scrollWidth - screensCarousel.clientWidth;
+            if (maxScroll <= 2) return;
+
+            if (screensCarousel.scrollLeft >= maxScroll - 4) {
+                screensCarousel.scrollTo({ left: 0, behavior: 'smooth' });
+                return;
+            }
+
+            const cards = screensCarousel.querySelectorAll('.screen-showcase-card');
+            const firstStep = cards.length > 1
+                ? cards[1].offsetLeft - cards[0].offsetLeft
+                : cards[0]?.getBoundingClientRect().width || screensCarousel.clientWidth;
+            screensCarousel.scrollBy({ left: firstStep, behavior: 'smooth' });
+        }, 3000);
+    };
+
+    const pauseAfterInteraction = () => {
+        stopCarousel();
+        clearTimeout(interactionTimer);
+        interactionTimer = setTimeout(startCarousel, 6500);
+    };
+
+    screensCarousel.addEventListener('pointerenter', () => {
+        pointerIsOverCarousel = true;
+        stopCarousel();
+    });
+    screensCarousel.addEventListener('pointerleave', () => {
+        pointerIsOverCarousel = false;
+        startCarousel();
+    });
+    screensCarousel.addEventListener('focusin', () => {
+        carouselHasFocus = true;
+        stopCarousel();
+    });
+    screensCarousel.addEventListener('focusout', () => {
+        requestAnimationFrame(() => {
+            carouselHasFocus = screensCarousel.contains(document.activeElement);
+            if (!carouselHasFocus) startCarousel();
+        });
+    });
+    ['pointerdown', 'touchstart', 'wheel', 'keydown'].forEach(eventName => {
+        screensCarousel.addEventListener(eventName, pauseAfterInteraction, { passive: true });
+    });
+
+    new IntersectionObserver(([entry]) => {
+        carouselIsVisible = entry.isIntersecting;
+        if (carouselIsVisible) startCarousel();
+        else stopCarousel();
+    }, { threshold: 0.25 }).observe(screensCarousel);
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stopCarousel();
+        else startCarousel();
+    });
+}
+
 // ---- Counter Animation ----
 const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -129,7 +232,7 @@ if (heroStats) {
 const contactForm = document.getElementById('contactForm');
 const successModal = document.getElementById('successModal');
 
-contactForm.addEventListener('submit', async (e) => {
+contactForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
     
     const submitBtn = contactForm.querySelector('button[type="submit"]');
@@ -150,34 +253,25 @@ contactForm.addEventListener('submit', async (e) => {
         timestamp: new Date().toISOString()
     };
     
-    // Send email using EmailJS or similar service
-    // For now, we'll use a mailto fallback and show success
     try {
-        // Option 1: Send via EmailJS (uncomment and configure)
-        // await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData);
-        
-        // Option 2: Send via mailto (fallback)
-        const mailtoLink = `mailto:restromind@gmail.com?subject=Restaurant Inquiry from ${formData.name}&body=Name: ${formData.name}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0ARestaurant: ${formData.restaurant}%0ACity: ${formData.city}%0A%0AMessage:%0A${formData.message}`;
-        
-        // Open mailto link in background
-        const tempLink = document.createElement('a');
-        tempLink.href = mailtoLink;
-        tempLink.target = '_blank';
-        tempLink.click();
-        
-        // Show success modal
-        setTimeout(() => {
-            successModal.classList.add('active');
-            contactForm.reset();
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        }, 1000);
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+        if (!response.ok) throw new Error('Message could not be sent');
+        successModal?.classList.add('active');
+        contactForm.reset();
         
     } catch (error) {
         console.error('Error sending message:', error);
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
-        alert('Something went wrong. Please try again or email us directly at restromind@gmail.com');
+        alert('We could not send your message right now. Please try again or email innovexnow@gmail.com.');
+    }
+    if (submitBtn.disabled) {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
     }
 });
 
@@ -289,7 +383,7 @@ console.log(
     'font-size: 16px; color: #666;'
 );
 console.log(
-    '%cInterested in RestroMind? Contact us at restromind@gmail.com',
+    '%cInterested in RestroMind? Contact us at innovexnow@gmail.com',
     'font-size: 14px; color: #004E89;'
 );
 
@@ -297,12 +391,12 @@ console.log(
 // Interactive Figma Screen Switchers
 // ========================================================
 const userScreenMap = {
-    'explore': 'assets/images/user/explore.png',
+    'explore': 'assets/images/user/explore.png?v=2',
     'restaurant': 'assets/images/user/restaurant-detail.png',
-    'dish': 'assets/images/user/dish-detail.png',
+    'dish': 'assets/images/user/dish-detail.png?v=2',
     'cart': 'assets/images/user/cart.png',
-    'track': 'assets/images/user/track-order.png',
-    'success': 'assets/images/user/order-success.png'
+    'track': 'assets/images/user/track-order.png?v=3',
+    'success': 'assets/images/user/order-success.png?v=3'
 };
 
 const userScreenImg = document.getElementById('userAppScreenImg');
@@ -315,6 +409,7 @@ screenTabs.forEach(tab => {
         
         const screenKey = tab.getAttribute('data-screen');
         if (userScreenImg && userScreenMap[screenKey]) {
+            userScreenImg.parentElement.scrollTop = 0;
             userScreenImg.classList.remove('fade-in');
             void userScreenImg.offsetWidth; // trigger reflow
             userScreenImg.src = userScreenMap[screenKey];
@@ -323,18 +418,33 @@ screenTabs.forEach(tab => {
     });
 });
 
+function enableAutoScreenRotation(tabs, intervalMs = 2000) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || tabs.length < 2) return;
+    let current = 0;
+    let timer;
+    const rotate = () => {
+        current = (current + 1) % tabs.length;
+        tabs[current].click();
+    };
+    const start = () => { clearInterval(timer); timer = setInterval(rotate, intervalMs); };
+    tabs.forEach((tab, index) => tab.addEventListener('click', () => { current = index; start(); }));
+    start();
+}
+enableAutoScreenRotation(screenTabs);
+
 const adminScreenMap = {
-    'dashboard': 'assets/images/admin/dashboard-overview.png',
-    'orders': 'assets/images/admin/orders.png',
-    'print': 'assets/images/admin/order-print.png',
+    'dashboard': 'assets/images/admin/orders.png',
+    'orders': 'assets/images/admin/live-orders-new.png?v=2',
+    'print': 'assets/images/admin/order-detail.png?v=2',
     'menu': 'assets/images/admin/menu-management.png',
-    'analytics': 'assets/images/admin/analytics.png',
-    'revenue': 'assets/images/admin/revenue.png'
+    'analytics': 'assets/images/admin/analytics-preview.svg',
+    'revenue': 'assets/images/admin/revenue-preview.svg'
 };
 
 const adminScreenContent = {
     'dashboard': {
-        badge: '⚡ Live Operations',
+        badge: 'Live Operations',
+        badgeIcon: 'fa-bolt',
         title: 'Real-Time Restaurant Overview',
         desc: 'Instant visibility over daily revenue, order volumes, active dining tables, and staff performance in a single synchronized interface.',
         bullets: [
@@ -345,7 +455,8 @@ const adminScreenContent = {
         ]
     },
     'orders': {
-        badge: '📋 Live Kitchen Dispatch',
+        badge: 'Live Kitchen Dispatch',
+        badgeIcon: 'fa-clipboard-list',
         title: 'Real-Time Kitchen Orders (KDS)',
         desc: 'Eliminate paper tickets and kitchen confusion. Orders appear instantaneously on digital displays with live preparation status.',
         bullets: [
@@ -356,7 +467,8 @@ const adminScreenContent = {
         ]
     },
     'print': {
-        badge: '🖨️ Thermal KDS Print',
+        badge: 'Thermal KDS Print',
+        badgeIcon: 'fa-print',
         title: 'Automated KOT & Bill Printing',
         desc: 'Seamless Bluetooth & Wi-Fi thermal printer integration. Generates custom kitchen order tokens and customer receipts automatically.',
         bullets: [
@@ -367,7 +479,8 @@ const adminScreenContent = {
         ]
     },
     'menu': {
-        badge: '🍲 Menu Control Studio',
+        badge: 'Menu Control Studio',
+        badgeIcon: 'fa-book-open',
         title: '1-Click Menu & Pricing Management',
         desc: 'Take full control over your catalog. Update item prices, toggle dish availability, and introduce seasonal specials instantly.',
         bullets: [
@@ -378,7 +491,8 @@ const adminScreenContent = {
         ]
     },
     'analytics': {
-        badge: '📈 Smart Intelligence',
+        badge: 'Smart Intelligence',
+        badgeIcon: 'fa-chart-line',
         title: 'Deep Analytics & Business Growth',
         desc: 'Make data-backed decisions that maximize profits. Identify your most profitable items, slow-moving stock, and customer retention metrics.',
         bullets: [
@@ -389,7 +503,8 @@ const adminScreenContent = {
         ]
     },
     'revenue': {
-        badge: '💳 Financial Health',
+        badge: 'Financial Health',
+        badgeIcon: 'fa-coins',
         title: 'Revenue Reconciliation & Reports',
         desc: 'Complete financial clarity with automated revenue categorization, cash vs digital payment audits, and 1-click accounting exports.',
         bullets: [
@@ -418,12 +533,16 @@ adminTabs.forEach(tab => {
             adminScreenImg.classList.remove('fade-in');
             void adminScreenImg.offsetWidth;
             adminScreenImg.src = adminScreenMap[screenKey];
+            adminScreenImg.dataset.screen = screenKey;
+            adminScreenImg.parentElement.scrollTop = 0;
             adminScreenImg.classList.add('fade-in');
         }
 
         const content = adminScreenContent[screenKey];
         if (content) {
-            if (adminDetailBadge) adminDetailBadge.textContent = content.badge;
+            if (adminDetailBadge) {
+                adminDetailBadge.innerHTML = `<i class="fas ${content.badgeIcon}" aria-hidden="true"></i> ${content.badge}`;
+            }
             if (adminDetailTitle) adminDetailTitle.textContent = content.title;
             if (adminDetailDesc) adminDetailDesc.textContent = content.desc;
             if (adminDetailBullets) {
@@ -434,6 +553,7 @@ adminTabs.forEach(tab => {
         }
     });
 });
+enableAutoScreenRotation(adminTabs);
 
 // Interactive 3D Tilt on Feature Cards and Device Frames
 document.querySelectorAll('.feature-card, .problem-card, .step-card, .screen-showcase-card').forEach(card => {

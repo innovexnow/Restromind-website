@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="icon" type="image/png" href="assets/images/logo.png">
     <link rel="apple-touch-icon" href="assets/images/logo.png">
     <link rel="stylesheet" href="styles.css">
@@ -110,8 +111,8 @@
                         <div class="phone-mockup phone-hero-user">
                             <div class="phone-frame">
                                 <div class="phone-notch"></div>
-                                <div class="phone-screen phone-screen-img">
-                                    <img src="assets/images/user/explore.png" alt="RestroMind User App" class="screen-img-hero">
+                                <div class="phone-screen phone-screen-img screen-scrollable">
+                                    <img src="assets/images/user/explore.png?v=2" alt="RestroMind User App" class="screen-img-hero">
                                     <div class="screen-overlay-gradient"></div>
                                 </div>
                             </div>
@@ -181,13 +182,13 @@
     <section class="problems-section" id="problems">
         <div class="container">
             <div class="section-header animate-on-scroll">
-                <span class="section-tag">😫 The Problem</span>
+                <span class="section-tag"><i class="fas fa-triangle-exclamation"></i> The Problem</span>
                 <h2 class="section-title">Running a Restaurant is <span class="gradient-text">Stressful</span></h2>
                 <p class="section-subtitle">Every restaurant owner faces these daily challenges. Sound familiar?</p>
             </div>
             <div class="problems-grid">
                 <div class="problem-card animate-on-scroll" data-delay="0">
-                    <div class="problem-icon">📝</div>
+                    <div class="problem-icon"><i class="fas fa-file-pen"></i></div>
                     <h3>Manual Order Taking</h3>
                     <p>Waiters take orders on paper, miscommunication happens, wrong orders reach the kitchen. Customers get frustrated.</p>
                     <div class="problem-impact">
@@ -195,7 +196,7 @@
                     </div>
                 </div>
                 <div class="problem-card animate-on-scroll" data-delay="100">
-                    <div class="problem-icon">⏰</div>
+                    <div class="problem-icon"><i class="fas fa-clock"></i></div>
                     <h3>Long Wait Times</h3>
                     <p>Customers wait 15-20 minutes just to place an order. During peak hours, the chaos multiplies.</p>
                     <div class="problem-impact">
@@ -203,7 +204,7 @@
                     </div>
                 </div>
                 <div class="problem-card animate-on-scroll" data-delay="200">
-                    <div class="problem-icon">📊</div>
+                    <div class="problem-icon"><i class="fas fa-chart-column"></i></div>
                     <h3>No Data, No Insights</h3>
                     <p>Which dish sells most? When is peak hour? What's the daily revenue? No answers — just guesswork.</p>
                     <div class="problem-impact">
@@ -211,7 +212,7 @@
                     </div>
                 </div>
                 <div class="problem-card animate-on-scroll" data-delay="300">
-                    <div class="problem-icon">📉</div>
+                    <div class="problem-icon"><i class="fas fa-chart-line"></i></div>
                     <h3>Crushing 30% Commissions</h3>
                     <p>Food aggregators eat away 25-32% of your hard-earned margins. You do all the cooking and operations, while they pocket your profits.</p>
                     <div class="problem-impact">
@@ -219,7 +220,7 @@
                     </div>
                 </div>
                 <div class="problem-card animate-on-scroll" data-delay="400">
-                    <div class="problem-icon">👨‍🍳</div>
+                    <div class="problem-icon"><i class="fas fa-user-group"></i></div>
                     <h3>Staff Mismanagement</h3>
                     <p>No way to track staff performance, assign roles, or manage shifts. Everything is managed verbally.</p>
                     <div class="problem-impact">
@@ -227,7 +228,7 @@
                     </div>
                 </div>
                 <div class="problem-card animate-on-scroll" data-delay="500">
-                    <div class="problem-icon">💸</div>
+                    <div class="problem-icon"><i class="fas fa-money-bill-transfer"></i></div>
                     <h3>Revenue Leakage</h3>
                     <p>No proper billing system, manual calculations lead to errors. Money is lost without even knowing.</p>
                     <div class="problem-impact">
@@ -252,7 +253,7 @@
                 <div class="benefit-card animate-on-scroll" data-delay="0">
                     <div class="benefit-card-glow"></div>
                     <div class="benefit-header">
-                        <div class="benefit-icon-badge speed">⚡</div>
+                        <div class="benefit-icon-badge speed"><i class="fas fa-bolt"></i></div>
                         <div class="benefit-metric-pill green">+35% Faster</div>
                     </div>
                     <h3>Turn Tables 35% Faster</h3>
@@ -267,7 +268,7 @@
                 <div class="benefit-card animate-on-scroll" data-delay="100">
                     <div class="benefit-card-glow"></div>
                     <div class="benefit-header">
-                        <div class="benefit-icon-badge green">💰</div>
+                        <div class="benefit-icon-badge green"><i class="fas fa-coins"></i></div>
                         <div class="benefit-metric-pill green">+24% AOV</div>
                     </div>
                     <h3>Boost Average Bill Size</h3>
@@ -282,7 +283,7 @@
                 <div class="benefit-card animate-on-scroll" data-delay="200">
                     <div class="benefit-card-glow"></div>
                     <div class="benefit-header">
-                        <div class="benefit-icon-badge shield">🛡️</div>
+                        <div class="benefit-icon-badge shield"><i class="fas fa-shield-halved"></i></div>
                         <div class="benefit-metric-pill green">0% Commission</div>
                     </div>
                     <h3>Save 30% Delivery Commissions</h3>
@@ -297,7 +298,7 @@
                 <div class="benefit-card animate-on-scroll" data-delay="300">
                     <div class="benefit-card-glow"></div>
                     <div class="benefit-header">
-                        <div class="benefit-icon-badge chef">👨‍🍳</div>
+                        <div class="benefit-icon-badge chef"><i class="fas fa-utensils"></i></div>
                         <div class="benefit-metric-pill green">0% Errors</div>
                     </div>
                     <h3>100% Kitchen Accuracy & Direct KDS</h3>
@@ -312,7 +313,7 @@
                 <div class="benefit-card animate-on-scroll" data-delay="400">
                     <div class="benefit-card-glow"></div>
                     <div class="benefit-header">
-                        <div class="benefit-icon-badge pay">💳</div>
+                        <div class="benefit-icon-badge pay"><i class="fas fa-credit-card"></i></div>
                         <div class="benefit-metric-pill green">5 Sec Pay</div>
                     </div>
                     <h3>Instant Table-Side UPI & Split Bill</h3>
@@ -327,7 +328,7 @@
                 <div class="benefit-card animate-on-scroll" data-delay="500">
                     <div class="benefit-card-glow"></div>
                     <div class="benefit-header">
-                        <div class="benefit-icon-badge chat">📲</div>
+                        <div class="benefit-icon-badge chat"><i class="fas fa-comments"></i></div>
                         <div class="benefit-metric-pill green">3x Returns</div>
                     </div>
                     <h3>WhatsApp Loyalty CRM & Google Reviews</h3>
@@ -359,91 +360,91 @@
     <section class="features-section" id="features">
         <div class="container">
             <div class="section-header animate-on-scroll">
-                <span class="section-tag">✨ Features</span>
+                <span class="section-tag"><i class="fas fa-wand-magic-sparkles"></i> Features</span>
                 <h2 class="section-title">Everything You Need to <span class="gradient-text">Run Smarter</span></h2>
                 <p class="section-subtitle">RestroMind provides a complete suite of tools for both restaurant owners and their customers</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card animate-on-scroll" data-delay="0">
                     <div class="feature-icon-wrap">
-                        <div class="feature-icon">📱</div>
+                        <div class="feature-icon"><i class="fas fa-qrcode"></i></div>
                     </div>
                     <h3>QR Code Ordering</h3>
                     <p>Customers scan QR at their table, browse digital menu, and place orders instantly. No waiter needed!</p>
                 </div>
                 <div class="feature-card animate-on-scroll" data-delay="50">
                     <div class="feature-icon-wrap">
-                        <div class="feature-icon">🍽️</div>
+                        <div class="feature-icon"><i class="fas fa-book-open"></i></div>
                     </div>
                     <h3>Digital Menu Management</h3>
                     <p>Create beautiful digital menus with images, categories, pricing. Update in real-time — no reprinting!</p>
                 </div>
                 <div class="feature-card animate-on-scroll" data-delay="100">
                     <div class="feature-icon-wrap">
-                        <div class="feature-icon">📊</div>
+                        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
                     </div>
                     <h3>Real-Time Analytics</h3>
                     <p>Track revenue, popular items, peak hours, customer behavior — all on a beautiful dashboard.</p>
                 </div>
                 <div class="feature-card animate-on-scroll" data-delay="150">
                     <div class="feature-icon-wrap">
-                        <div class="feature-icon">👨‍🍳</div>
+                        <div class="feature-icon"><i class="fas fa-fire-burner"></i></div>
                     </div>
                     <h3>Kitchen Display System</h3>
                     <p>Orders go directly to kitchen screens. Chefs see orders in real-time. No more lost order slips!</p>
                 </div>
                 <div class="feature-card animate-on-scroll" data-delay="200">
                     <div class="feature-icon-wrap">
-                        <div class="feature-icon">✨</div>
+                        <div class="feature-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
                     </div>
                     <h3>Smart Upselling & Combos</h3>
                     <p>Mouth-watering dish photos with automated pairing prompts ("Add Cold Brew for ₹99") that boost average ticket size by +24% effortlessly.</p>
                 </div>
                 <div class="feature-card animate-on-scroll" data-delay="250">
                     <div class="feature-icon-wrap">
-                        <div class="feature-icon">🪑</div>
+                        <div class="feature-icon"><i class="fas fa-chair"></i></div>
                     </div>
                     <h3>Table & Booking Management</h3>
                     <p>Manage table status, handle reservations, generate unique QR codes for each table.</p>
                 </div>
                 <div class="feature-card animate-on-scroll" data-delay="300">
                     <div class="feature-icon-wrap">
-                        <div class="feature-icon">👥</div>
+                        <div class="feature-icon"><i class="fas fa-users"></i></div>
                     </div>
                     <h3>Staff Management</h3>
                     <p>Add staff, assign roles (chef, waiter, manager), track performance — all from one dashboard.</p>
                 </div>
                 <div class="feature-card animate-on-scroll" data-delay="350">
                     <div class="feature-icon-wrap">
-                        <div class="feature-icon">💳</div>
+                        <div class="feature-icon"><i class="fas fa-credit-card"></i></div>
                     </div>
                     <h3>Payment Integration</h3>
                     <p>Accept UPI, cards, and digital wallets. Auto-generated bills. Zero payment hassles.</p>
                 </div>
                 <div class="feature-card animate-on-scroll" data-delay="400">
                     <div class="feature-icon-wrap">
-                        <div class="feature-icon">⭐</div>
+                        <div class="feature-icon"><i class="fas fa-star"></i></div>
                     </div>
                     <h3>Reviews & Ratings</h3>
                     <p>Collect customer feedback, respond to reviews, improve service based on real data.</p>
                 </div>
                 <div class="feature-card animate-on-scroll" data-delay="450">
                     <div class="feature-icon-wrap">
-                        <div class="feature-icon">🎁</div>
+                        <div class="feature-icon"><i class="fas fa-gift"></i></div>
                     </div>
                     <h3>Offers & Loyalty Program</h3>
                     <p>Create discount coupons, happy hour deals, reward loyal customers with points system.</p>
                 </div>
                 <div class="feature-card animate-on-scroll" data-delay="500">
                     <div class="feature-icon-wrap">
-                        <div class="feature-icon">🔔</div>
+                        <div class="feature-icon"><i class="fas fa-bell"></i></div>
                     </div>
                     <h3>Push Notifications</h3>
                     <p>Send promotional offers, order updates, and announcements directly to customers' phones.</p>
                 </div>
                 <div class="feature-card animate-on-scroll" data-delay="550">
                     <div class="feature-icon-wrap">
-                        <div class="feature-icon">📋</div>
+                        <div class="feature-icon"><i class="fas fa-receipt"></i></div>
                     </div>
                     <h3>Reports & Billing</h3>
                     <p>Generate detailed reports, track transactions, export revenue data — everything automated.</p>
@@ -457,10 +458,10 @@
                     <h3 class="marquee-title">Explore Real RestroMind User & Admin Interfaces</h3>
                     <p class="marquee-sub">Original design components straight from production Flutter apps</p>
                 </div>
-                <div class="screens-carousel">
+                <div class="screens-carousel" role="region" aria-label="RestroMind app screen previews" tabindex="0">
                     <div class="screen-showcase-card">
-                        <div class="card-screen-wrap">
-                            <img src="assets/images/user/explore.png" alt="Explore Screen">
+                        <div class="card-screen-wrap screen-scrollable">
+                            <img src="assets/images/user/explore.png?v=2" alt="Explore Screen">
                         </div>
                         <div class="card-caption">
                             <strong>Dine-In Menu</strong>
@@ -468,8 +469,8 @@
                         </div>
                     </div>
                     <div class="screen-showcase-card">
-                        <div class="card-screen-wrap">
-                            <img src="assets/images/user/dish-detail.png" alt="Dish Detail">
+                        <div class="card-screen-wrap screen-scrollable">
+                            <img src="assets/images/user/dish-detail.png?v=2" alt="Dish Detail">
                         </div>
                         <div class="card-caption">
                             <strong>Item Customizer</strong>
@@ -486,8 +487,8 @@
                         </div>
                     </div>
                     <div class="screen-showcase-card">
-                        <div class="card-screen-wrap">
-                            <img src="assets/images/user/track-order.png" alt="Live Tracking">
+                        <div class="card-screen-wrap screen-scrollable">
+                            <img src="assets/images/user/track-order.png?v=3" alt="Live Tracking">
                         </div>
                         <div class="card-caption">
                             <strong>Live Order Status</strong>
@@ -496,7 +497,7 @@
                     </div>
                     <div class="screen-showcase-card">
                         <div class="card-screen-wrap">
-                            <img src="assets/images/admin/dashboard-overview.png" alt="Admin Dashboard">
+                            <img src="assets/images/admin/Blur, New Theme).png" alt="Admin Dashboard">
                         </div>
                         <div class="card-caption">
                             <strong>Admin Dashboard</strong>
@@ -505,7 +506,7 @@
                     </div>
                     <div class="screen-showcase-card">
                         <div class="card-screen-wrap">
-                            <img src="assets/images/admin/orders.png" alt="Live Orders">
+                            <img src="assets/images/admin/Blur, New Theme.png" alt="Live Orders">
                         </div>
                         <div class="card-caption">
                             <strong>Kitchen Orders (KDS)</strong>
@@ -530,7 +531,7 @@
     <section class="live-kitchen-section" id="live-kitchen">
         <div class="container">
             <div class="section-header animate-on-scroll">
-                <span class="section-tag">👨‍🍳 Live Kitchen & Operations</span>
+                <span class="section-tag"><i class="fas fa-fire-burner"></i> Live Kitchen & Operations</span>
                 <h2 class="section-title">See RestroMind in <span class="gradient-text">Live Action</span></h2>
                 <p class="section-subtitle">Watch how orders travel from customer QR scans directly into chef frying pans and real-time manager dashboards</p>
             </div>
@@ -721,14 +722,14 @@
     <section class="how-it-works" id="how-it-works">
         <div class="container">
             <div class="section-header animate-on-scroll">
-                <span class="section-tag">🚀 How It Works</span>
+                <span class="section-tag"><i class="fas fa-route"></i> How It Works</span>
                 <h2 class="section-title">Get Started in <span class="gradient-text">3 Simple Steps</span></h2>
                 <p class="section-subtitle">Setting up RestroMind is as easy as ordering food!</p>
             </div>
             <div class="steps-container">
                 <div class="step-card animate-on-scroll" data-delay="0">
                     <div class="step-number">01</div>
-                    <div class="step-icon">📲</div>
+                    <div class="step-icon"><i class="fas fa-mobile-screen-button"></i></div>
                     <h3>Sign Up & Setup</h3>
                     <p>Download the RestroMind Admin App, register your restaurant, add your menu, tables, and staff details. Takes just 30 minutes!</p>
                 </div>
@@ -738,7 +739,7 @@
                 </div>
                 <div class="step-card animate-on-scroll" data-delay="200">
                     <div class="step-number">02</div>
-                    <div class="step-icon">📎</div>
+                    <div class="step-icon"><i class="fas fa-qrcode"></i></div>
                     <h3>Place QR Codes</h3>
                     <p>Generate unique QR codes for each table from the app. Print and place them on tables. Customers scan to see your digital menu instantly!</p>
                 </div>
@@ -748,7 +749,7 @@
                 </div>
                 <div class="step-card animate-on-scroll" data-delay="400">
                     <div class="step-number">03</div>
-                    <div class="step-icon">🎉</div>
+                    <div class="step-icon"><i class="fas fa-circle-check"></i></div>
                     <h3>Go Live!</h3>
                     <p>That's it! Customers order from their phones, kitchen gets orders in real-time, you track everything on your dashboard. Magic! ✨</p>
                 </div>
@@ -760,49 +761,49 @@
     <section class="app-showcase user-app-section" id="user-app">
         <div class="container">
             <div class="section-header animate-on-scroll">
-                <span class="section-tag">📱 For Customers</span>
+                <span class="section-tag"><i class="fas fa-mobile-screen-button"></i> For Customers</span>
                 <h2 class="section-title">RestroMind <span class="gradient-text">User App</span></h2>
                 <p class="section-subtitle">A seamless dining experience for your customers — from scanning QR to tracking orders</p>
             </div>
             <div class="app-showcase-content">
                 <div class="app-features-list animate-on-scroll">
                     <div class="app-feature-item">
-                        <div class="app-feature-icon">📷</div>
+                        <div class="app-feature-icon"><i class="fas fa-camera"></i></div>
                         <div>
                             <h4>Scan & Order</h4>
                             <p>Scan the QR code at your table and instantly browse the restaurant's digital menu. Place orders without waiting for a waiter.</p>
                         </div>
                     </div>
                     <div class="app-feature-item">
-                        <div class="app-feature-icon">🔍</div>
+                        <div class="app-feature-icon"><i class="fas fa-magnifying-glass"></i></div>
                         <div>
                             <h4>Search & Discover</h4>
                             <p>Find nearby restaurants, search for your favorite dishes, explore new cuisines — all in one app.</p>
                         </div>
                     </div>
                     <div class="app-feature-item">
-                        <div class="app-feature-icon">📍</div>
+                        <div class="app-feature-icon"><i class="fas fa-location-dot"></i></div>
                         <div>
                             <h4>Real-Time Order Tracking</h4>
                             <p>Know exactly when your food is being prepared, ready, and served. No more wondering "where's my order?"</p>
                         </div>
                     </div>
                     <div class="app-feature-item">
-                        <div class="app-feature-icon">🪑</div>
+                        <div class="app-feature-icon"><i class="fas fa-chair"></i></div>
                         <div>
                             <h4>Book Tables</h4>
                             <p>Reserve tables in advance. Pick your date, time, and preferred seating. Get instant confirmation.</p>
                         </div>
                     </div>
                     <div class="app-feature-item">
-                        <div class="app-feature-icon">💳</div>
+                        <div class="app-feature-icon"><i class="fas fa-credit-card"></i></div>
                         <div>
                             <h4>Easy Payments</h4>
                             <p>Pay seamlessly via UPI, credit/debit cards, or digital wallets. Split bills with friends too!</p>
                         </div>
                     </div>
                     <div class="app-feature-item">
-                        <div class="app-feature-icon">🎁</div>
+                        <div class="app-feature-icon"><i class="fas fa-gift"></i></div>
                         <div>
                             <h4>Rewards & Offers</h4>
                             <p>Earn loyalty points on every order. Apply coupons, unlock deals, and get rewarded for being a regular!</p>
@@ -822,8 +823,8 @@
                         <div class="showcase-phone-main">
                             <div class="phone-frame modern">
                                 <div class="phone-notch"></div>
-                                <div class="phone-screen phone-screen-img">
-                                    <img id="userAppScreenImg" src="assets/images/user/explore.png" alt="RestroMind User App" class="screen-img-display fade-in">
+                                <div class="phone-screen phone-screen-img screen-scrollable">
+                                    <img id="userAppScreenImg" src="assets/images/user/explore.png?v=2" alt="RestroMind User App" class="screen-img-display fade-in">
                                 </div>
                             </div>
                             <div class="phone-glow"></div>
@@ -838,7 +839,7 @@
     <section class="app-showcase admin-app-section" id="admin-app">
         <div class="container">
             <div class="section-header animate-on-scroll">
-                <span class="section-tag">🏢 For Restaurant Owners</span>
+                <span class="section-tag"><i class="fas fa-store"></i> For Restaurant Owners</span>
                 <h2 class="section-title">RestroMind <span class="gradient-text">Admin App</span></h2>
                 <p class="section-subtitle">Your entire restaurant operations — managed from a single powerful dashboard</p>
             </div>
@@ -858,7 +859,7 @@
                             <div class="admin-phone-frame">
                                 <div class="admin-phone-notch"></div>
                                 <div class="admin-phone-screen">
-                                    <img id="adminAppScreenImg" src="assets/images/admin/dashboard-overview.png" alt="RestroMind Admin Dashboard" class="admin-img-display fade-in">
+                                    <img id="adminAppScreenImg" src="assets/images/admin/orders.png" alt="RestroMind Admin Dashboard" class="admin-img-display fade-in" data-screen="dashboard">
                                 </div>
                                 <div class="admin-phone-glow"></div>
                             </div>
@@ -866,7 +867,7 @@
 
                         <!-- Right: Dynamic Screen Details & Live Feature Highlights -->
                         <div class="admin-screen-details" id="adminScreenDetails">
-                            <div class="admin-detail-badge" id="adminDetailBadge">⚡ Live Operations</div>
+                            <div class="admin-detail-badge" id="adminDetailBadge"><i class="fas fa-bolt" aria-hidden="true"></i> Live Operations</div>
                             <h3 class="admin-detail-title" id="adminDetailTitle">Real-Time Restaurant Overview</h3>
                             <p class="admin-detail-desc" id="adminDetailDesc">
                                 Instant visibility over daily revenue, order volumes, active dining tables, and staff performance in a single synchronized interface.
@@ -888,32 +889,32 @@
                 </div>
                 <div class="admin-features-grid animate-on-scroll">
                     <div class="admin-feature-card">
-                        <div class="admin-feature-icon">📋</div>
+                        <div class="admin-feature-icon"><i class="fas fa-clipboard-list"></i></div>
                         <h4>Live Order Management</h4>
                         <p>Accept, reject, track orders in real-time. See order details, table numbers, special instructions.</p>
                     </div>
                     <div class="admin-feature-card">
-                        <div class="admin-feature-icon">🍽️</div>
+                        <div class="admin-feature-icon"><i class="fas fa-book-open"></i></div>
                         <h4>Menu Control</h4>
                         <p>Add/edit menu items, set prices, upload images, toggle availability — all instantly.</p>
                     </div>
                     <div class="admin-feature-card">
-                        <div class="admin-feature-icon">👨‍🍳</div>
+                        <div class="admin-feature-icon"><i class="fas fa-fire-burner"></i></div>
                         <h4>Kitchen Display (KDS)</h4>
                         <p>Real-time kitchen screen shows orders as they come in. Chefs mark items as preparing/ready.</p>
                     </div>
                     <div class="admin-feature-card">
-                        <div class="admin-feature-icon">📊</div>
+                        <div class="admin-feature-icon"><i class="fas fa-chart-column"></i></div>
                         <h4>Deep Analytics</h4>
                         <p>Revenue trends, peak hours, customer insights, item performance — data-driven decisions.</p>
                     </div>
                     <div class="admin-feature-card">
-                        <div class="admin-feature-icon">📲</div>
+                        <div class="admin-feature-icon"><i class="fas fa-comments"></i></div>
                         <h4>WhatsApp CRM & Invoices</h4>
                         <p>Automated digital receipts sent straight to customer WhatsApp with 5-star Google review triggers and repeat loyalty rewards.</p>
                     </div>
                     <div class="admin-feature-card">
-                        <div class="admin-feature-icon">🎯</div>
+                        <div class="admin-feature-icon"><i class="fas fa-bullseye"></i></div>
                         <h4>Marketing & Loyalty</h4>
                         <p>Create discount campaigns, broadcast festive combos, manage loyalty tiers — turn one-time diners into regulars.</p>
                     </div>
@@ -926,7 +927,7 @@
     <section class="comparison-section">
         <div class="container">
             <div class="section-header animate-on-scroll">
-                <span class="section-tag">⚡ The Difference</span>
+                <span class="section-tag"><i class="fas fa-scale-balanced"></i> The Difference</span>
                 <h2 class="section-title">Before & After <span class="gradient-text">RestroMind</span></h2>
             </div>
             <div class="comparison-table animate-on-scroll">
@@ -969,7 +970,7 @@
     <section class="testimonials-section">
         <div class="container">
             <div class="section-header animate-on-scroll">
-                <span class="section-tag">💬 Testimonials</span>
+                <span class="section-tag"><i class="fas fa-comments"></i> Testimonials</span>
                 <h2 class="section-title">Restaurant Owners <span class="gradient-text">Love Us</span></h2>
             </div>
             <div class="testimonials-grid">
@@ -1014,7 +1015,7 @@
     <section class="contact-section" id="contact">
         <div class="container">
             <div class="section-header animate-on-scroll">
-                <span class="section-tag">📧 Get In Touch</span>
+                <span class="section-tag"><i class="fas fa-envelope"></i> Get In Touch</span>
                 <h2 class="section-title">Ready to <span class="gradient-text">Transform</span> Your Restaurant?</h2>
                 <p class="section-subtitle">Fill out the form below and our team will get back to you within 24 hours</p>
             </div>
@@ -1023,25 +1024,19 @@
                     <div class="contact-info-card">
                         <div class="contact-icon">📧</div>
                         <h4>Email Us</h4>
-                        <p>restromind@gmail.com</p>
+                        <p>innovexnow@gmail.com</p>
                     </div>
                     <div class="contact-info-card">
                         <div class="contact-icon">📞</div>
                         <h4>Call Us</h4>
                         <p>+91 98765 43210</p>
                     </div>
-                    <div class="contact-info-card">
-                        <div class="contact-icon">📍</div>
-                        <h4>Visit Us</h4>
-                        <p>India</p>
-                    </div>
                     <div class="contact-social">
                         <h4>Follow Us</h4>
                         <div class="social-links">
-                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                            <a href="https://x.com/" class="social-link" aria-label="X" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.linkedin.com/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1098,6 +1093,23 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag"><i class="fas fa-lightbulb"></i> Quick Answers</span>
+                <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+                <p class="section-subtitle">A few helpful details while our support team prepares your demo.</p>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item"><summary>How can RestroMind help my restaurant?</summary><p>RestroMind brings QR ordering, digital menus, live order handling and restaurant insights into one simple workflow.</p></details>
+                <details class="faq-item"><summary>Can I update my menu and prices myself?</summary><p>Yes. The menu control tools let your team update items, prices, photos and availability as your menu changes.</p></details>
+                <details class="faq-item"><summary>How do I request a demo or get started?</summary><p>Send us a message through the contact form with your restaurant details. Our team will follow up to arrange a walkthrough.</p></details>
+                <details class="faq-item"><summary>Does RestroMind support dine-in and takeaway orders?</summary><p>The platform is designed to help manage dine-in, takeaway and delivery orders from a shared operations view.</p></details>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -1120,9 +1132,9 @@
                 <div class="footer-links-col">
                     <h4>Support</h4>
                     <a href="#contact">Contact Us</a>
-                    <a href="#">FAQ</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
                 </div>
                 <div class="footer-links-col">
                     <h4>Download</h4>
@@ -1132,7 +1144,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 RestroMind. All rights reserved. Made with ❤️ in India</p>
+                <p>&copy; 2026 RestroMind. All rights reserved. Made with ❤️ in India</p>
             </div>
         </div>
     </footer>
