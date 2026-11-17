@@ -15,15 +15,29 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
       - name: Deploy to Vercel Production
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID || 'team_7YvJIbVcbfvvryNY42xVzM2i' }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID || 'prj_til6G5Ce0Q8VmgHrcVkZj2hvi9An' }}
         run: |
-          if [ -n "${{ secrets.VERCEL_TOKEN }}" ]; then
-            vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
-          else
-            echo "VERCEL_TOKEN not set in GitHub Secrets; native Vercel GitHub integration or local CLI deploy handles it."
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "::error::VERCEL_TOKEN is not set in GitHub Secrets!"
+            echo "::notice::Please add VERCEL_TOKEN in https://github.com/innovexnow/Restromind-website/settings/secrets/actions"
+            echo "Generate a token at https://vercel.com/account/tokens with Scope 'innovexnow-7923s-projects'."
+            exit 1
           fi
+
+          echo "🚀 Pulling Vercel project configuration..."
+          vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+
+          echo "📦 Building production bundle..."
+          vercel build --prod --token=$VERCEL_TOKEN
+
+          echo "⚡ Deploying prebuilt bundle to production..."
+          vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
