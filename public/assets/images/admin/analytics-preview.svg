@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 780">
+  <rect width="360" height="780" fill="#f7faf9"/>
+  <text x="24" y="38" fill="#0f172a" font-family="Arial,sans-serif" font-size="13" font-weight="700">9:41</text>
+  <text x="308" y="38" fill="#64748b" font-family="Arial,sans-serif" font-size="12">● ● ●</text>
+  <text x="24" y="86" fill="#0f172a" font-family="Arial,sans-serif" font-size="25" font-weight="700">Analytics</text>
+  <text x="24" y="110" fill="#64748b" font-family="Arial,sans-serif" font-size="12">Your restaurant at a glance</text>
+  <rect x="24" y="128" width="312" height="40" rx="12" fill="#e7f8f0"/>
+  <text x="42" y="153" fill="#08794f" font-family="Arial,sans-serif" font-size="13" font-weight="700">This week</text>
+  <text x="312" y="153" fill="#08794f" font-family="Arial,sans-serif" font-size="18">⌄</text>
+  <g font-family="Arial,sans-serif">
+    <rect x="24" y="184" width="150" height="104" rx="16" fill="#fff" stroke="#e2e8f0"/>
+    <text x="40" y="210" fill="#64748b" font-size="12">Gross revenue</text>
+    <text x="40" y="243" fill="#0f172a" font-size="23" font-weight="700">₹84,250</text>
+    <text x="40" y="267" fill="#059669" font-size="12" font-weight="700">↗ 14.8%</text>
+    <rect x="186" y="184" width="150" height="104" rx="16" fill="#fff" stroke="#e2e8f0"/>
+    <text x="202" y="210" fill="#64748b" font-size="12">Orders served</text>
+    <text x="202" y="243" fill="#0f172a" font-size="23" font-weight="700">312</text>
+    <text x="202" y="267" fill="#059669" font-size="12" font-weight="700">↗ 8.2%</text>
+    <rect x="24" y="300" width="150" height="104" rx="16" fill="#fff" stroke="#e2e8f0"/>
+    <text x="40" y="326" fill="#64748b" font-size="12">Average order</text>
+    <text x="40" y="359" fill="#0f172a" font-size="23" font-weight="700">₹270</text>
+    <text x="40" y="383" fill="#059669" font-size="12" font-weight="700">↗ 5.4%</text>
+    <rect x="186" y="300" width="150" height="104" rx="16" fill="#fff" stroke="#e2e8f0"/>
+    <text x="202" y="326" fill="#64748b" font-size="12">Repeat guests</text>
+    <text x="202" y="359" fill="#0f172a" font-size="23" font-weight="700">68%</text>
+    <text x="202" y="383" fill="#059669" font-size="12" font-weight="700">↗ 3.1%</text>
+  </g>
+  <rect x="24" y="418" width="312" height="174" rx="16" fill="#fff" stroke="#e2e8f0"/>
+  <text x="42" y="448" fill="#0f172a" font-family="Arial,sans-serif" font-size="15" font-weight="700">Sales trend</text>
+  <text x="42" y="469" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">Revenue by day</text>
+  <path d="M48 548 L92 526 L136 536 L180 500 L224 514 L268 478 L312 488" fill="none" stroke="#0ebe78" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M48 548 L92 526 L136 536 L180 500 L224 514 L268 478 L312 488 L312 568 L48 568Z" fill="#0ebe78" opacity=".10"/>
+  <g fill="#94a3b8" font-family="Arial,sans-serif" font-size="10"><text x="47" y="580">M</text><text x="91" y="580">T</text><text x="135" y="580">W</text><text x="179" y="580">T</text><text x="223" y="580">F</text><text x="267" y="580">S</text><text x="310" y="580">S</text></g>
+  <rect x="24" y="608" width="312" height="118" rx="16" fill="#fff" stroke="#e2e8f0"/>
+  <text x="42" y="638" fill="#0f172a" font-family="Arial,sans-serif" font-size="15" font-weight="700">Top selling</text>
+  <text x="42" y="670" fill="#334155" font-family="Arial,sans-serif" font-size="13">Truffle Mushroom Risotto</text>
+  <text x="306" y="670" text-anchor="end" fill="#08794f" font-family="Arial,sans-serif" font-size="13" font-weight="700">48 sold</text>
+  <text x="42" y="700" fill="#334155" font-family="Arial,sans-serif" font-size="13">Classic Margherita</text>
+  <text x="306" y="700" text-anchor="end" fill="#08794f" font-family="Arial,sans-serif" font-size="13" font-weight="700">36 sold</text>
+</svg>

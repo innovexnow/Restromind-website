@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 780">
+  <rect width="360" height="780" fill="#f7faf9"/>
+  <text x="24" y="38" fill="#0f172a" font-family="Arial,sans-serif" font-size="13" font-weight="700">9:41</text>
+  <text x="308" y="38" fill="#64748b" font-family="Arial,sans-serif" font-size="12">● ● ●</text>
+  <text x="24" y="86" fill="#0f172a" font-family="Arial,sans-serif" font-size="25" font-weight="700">Revenue</text>
+  <text x="24" y="110" fill="#64748b" font-family="Arial,sans-serif" font-size="12">Daily sales and payouts</text>
+  <rect x="24" y="132" width="312" height="166" rx="18" fill="#0b815a"/>
+  <text x="46" y="166" fill="#c9f7e2" font-family="Arial,sans-serif" font-size="12">TOTAL REVENUE • TODAY</text>
+  <text x="46" y="215" fill="#fff" font-family="Arial,sans-serif" font-size="35" font-weight="700">₹42,850</text>
+  <rect x="46" y="238" width="112" height="34" rx="17" fill="#ffffff" fill-opacity=".18"/>
+  <text x="60" y="260" fill="#fff" font-family="Arial,sans-serif" font-size="12" font-weight="700">↗ 12.6% this week</text>
+  <rect x="24" y="318" width="312" height="205" rx="16" fill="#fff" stroke="#e2e8f0"/>
+  <text x="42" y="350" fill="#0f172a" font-family="Arial,sans-serif" font-size="15" font-weight="700">Revenue overview</text>
+  <text x="42" y="372" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">Last 7 days</text>
+  <g fill="#d9f4e8">
+    <rect x="50" y="438" width="23" height="54" rx="7"/><rect x="91" y="414" width="23" height="78" rx="7"/>
+    <rect x="132" y="426" width="23" height="66" rx="7"/><rect x="173" y="392" width="23" height="100" rx="7"/>
+    <rect x="214" y="407" width="23" height="85" rx="7"/><rect x="255" y="376" width="23" height="116" rx="7"/>
+    <rect x="296" y="386" width="23" height="106" rx="7"/>
+  </g>
+  <g fill="#0ebe78"><rect x="50" y="461" width="23" height="31" rx="7"/><rect x="91" y="438" width="23" height="54" rx="7"/><rect x="132" y="448" width="23" height="44" rx="7"/><rect x="173" y="419" width="23" height="73" rx="7"/><rect x="214" y="432" width="23" height="60" rx="7"/><rect x="255" y="402" width="23" height="90" rx="7"/><rect x="296" y="415" width="23" height="77" rx="7"/></g>
+  <g fill="#94a3b8" font-family="Arial,sans-serif" font-size="10"><text x="53" y="510">M</text><text x="94" y="510">T</text><text x="135" y="510">W</text><text x="176" y="510">T</text><text x="217" y="510">F</text><text x="258" y="510">S</text><text x="299" y="510">S</text></g>
+  <rect x="24" y="543" width="312" height="183" rx="16" fill="#fff" stroke="#e2e8f0"/>
+  <text x="42" y="575" fill="#0f172a" font-family="Arial,sans-serif" font-size="15" font-weight="700">Payment breakdown</text>
+  <circle cx="79" cy="645" r="36" fill="none" stroke="#d9f4e8" stroke-width="13"/>
+  <circle cx="79" cy="645" r="36" fill="none" stroke="#0ebe78" stroke-width="13" stroke-dasharray="145 226" transform="rotate(-90 79 645)"/>
+  <circle cx="79" cy="645" r="36" fill="none" stroke="#5aa9ff" stroke-width="13" stroke-dasharray="51 226" stroke-dashoffset="-145" transform="rotate(-90 79 645)"/>
+  <g font-family="Arial,sans-serif" font-size="12" fill="#475569"><circle cx="144" cy="622" r="5" fill="#0ebe78"/><text x="158" y="626">UPI</text><text x="312" y="626" text-anchor="end" font-weight="700">64%</text><circle cx="144" cy="650" r="5" fill="#5aa9ff"/><text x="158" y="654">Card</text><text x="312" y="654" text-anchor="end" font-weight="700">23%</text><circle cx="144" cy="678" r="5" fill="#d9f4e8"/><text x="158" y="682">Cash</text><text x="312" y="682" text-anchor="end" font-weight="700">13%</text></g>
+</svg>

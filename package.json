@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "RestroMind Smart Restaurant Management Platform",
   "main": "index.html",
+  "type": "module",
   "scripts": {
-    "dev": "node local-server.js",
-    "deploy": "bash deploy.sh",
-    "push": "git add . && git commit -m 'update' && git push origin main",
-    "vercel": "vercel deploy --prod --yes"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "keywords": [
     "restromind",
@@ -19,6 +19,10 @@
   "author": "RestroMind Team",
   "license": "MIT",
   "dependencies": {
-    "nodemailer": "^6.9.16"
+    "@vitejs/plugin-react": "^6.3.0",
+    "nodemailer": "^6.9.16",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "vite": "^8.3.8"
   }
 }

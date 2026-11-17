@@ -1,9 +1,9 @@
-const nodemailer = require('nodemailer');
+import nodemailer from 'nodemailer';
 
 const clean = (value, maxLength = 2000) =>
     typeof value === 'string' ? value.trim().slice(0, maxLength) : '';
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
     if (req.method !== 'POST') {
         res.setHeader('Allow', 'POST');
         return res.status(405).json({ error: 'Method not allowed' });

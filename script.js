@@ -6,10 +6,12 @@
 window.addEventListener('load', () => {
     setTimeout(() => {
         const preloader = document.getElementById('preloader');
-        preloader.classList.add('hidden');
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 500);
+        if (preloader) {
+            preloader.classList.add('hidden');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        }
     }, 1000);
 });
 
@@ -391,12 +393,12 @@ console.log(
 // Interactive Figma Screen Switchers
 // ========================================================
 const userScreenMap = {
-    'explore': 'assets/images/user/explore.png?v=2',
+    'explore': 'assets/images/user/explore-screen.png',
     'restaurant': 'assets/images/user/restaurant-detail.png',
-    'dish': 'assets/images/user/dish-detail.png?v=2',
+    'dish': 'assets/images/user/dish-detail-screen.png',
     'cart': 'assets/images/user/cart.png',
-    'track': 'assets/images/user/track-order.png?v=3',
-    'success': 'assets/images/user/order-success.png?v=3'
+    'track': 'assets/images/user/track-order-screen.png',
+    'success': 'assets/images/user/order-success-screen.png'
 };
 
 const userScreenImg = document.getElementById('userAppScreenImg');
@@ -418,27 +420,126 @@ screenTabs.forEach(tab => {
     });
 });
 
-function enableAutoScreenRotation(tabs, intervalMs = 2000) {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || tabs.length < 2) return;
-    let current = 0;
-    let timer;
-    const rotate = () => {
-        current = (current + 1) % tabs.length;
-        tabs[current].click();
+function enableSectionScreenRotation({
+    sectionSelector,
+    tabs,
+    containerSelector,
+    initialTab = 0,
+    waitDelayMs = 4500,
+    rotationIntervalMs = 5500
+}) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !tabs || tabs.length < 2) return;
+    
+    let current = initialTab;
+    let rotationTimer = null;
+    let waitTimer = null;
+    let isPaused = false;
+    let isInView = false;
+
+    const stopAllTimers = () => {
+        clearTimeout(waitTimer);
+        clearInterval(rotationTimer);
+        waitTimer = null;
+        rotationTimer = null;
     };
-    const start = () => { clearInterval(timer); timer = setInterval(rotate, intervalMs); };
-    tabs.forEach((tab, index) => tab.addEventListener('click', () => { current = index; start(); }));
-    start();
+
+    const activateTab = (index) => {
+        current = index;
+        if (tabs[index]) {
+            tabs[index].click();
+        }
+    };
+
+    const startRotationLoop = () => {
+        clearInterval(rotationTimer);
+        rotationTimer = setInterval(() => {
+            if (isPaused || !isInView) return;
+            current = (current + 1) % tabs.length;
+            tabs[current].click();
+        }, rotationIntervalMs);
+    };
+
+    const scheduleRotationAfterWait = (delay = waitDelayMs) => {
+        stopAllTimers();
+        if (!isInView || isPaused) return;
+        waitTimer = setTimeout(() => {
+            if (!isInView || isPaused) return;
+            current = (current + 1) % tabs.length;
+            tabs[current].click();
+            startRotationLoop();
+        }, delay);
+    };
+
+    // User manual clicks
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', (e) => {
+            current = index;
+            if (e.isTrusted) {
+                stopAllTimers();
+                if (isInView && !isPaused) {
+                    scheduleRotationAfterWait(rotationIntervalMs);
+                }
+            }
+        });
+    });
+
+    // Hover pause/resume on container
+    if (containerSelector) {
+        const container = document.querySelector(containerSelector);
+        if (container) {
+            container.addEventListener('mouseenter', () => {
+                isPaused = true;
+                stopAllTimers();
+            });
+            container.addEventListener('mouseleave', () => {
+                isPaused = false;
+                if (isInView) {
+                    scheduleRotationAfterWait(rotationIntervalMs);
+                }
+            });
+        }
+    }
+
+    // IntersectionObserver to detect when user comes to this section
+    const sectionEl = document.querySelector(sectionSelector);
+    if (sectionEl) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    isInView = true;
+                    // Reset to initial tab (Explore for User App, Live Overview for Admin App)
+                    activateTab(initialTab);
+                    // Only autoscroll when user stays/waits in this section
+                    scheduleRotationAfterWait(waitDelayMs);
+                } else {
+                    isInView = false;
+                    stopAllTimers();
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        observer.observe(sectionEl);
+    }
 }
-enableAutoScreenRotation(screenTabs);
+
+enableSectionScreenRotation({
+    sectionSelector: '#user-app',
+    tabs: screenTabs,
+    containerSelector: '.showcase-phones-interactive',
+    initialTab: 0,
+    waitDelayMs: 4500,
+    rotationIntervalMs: 5500
+});
 
 const adminScreenMap = {
-    'dashboard': 'assets/images/admin/orders.png',
-    'orders': 'assets/images/admin/live-orders-new.png?v=2',
-    'print': 'assets/images/admin/order-detail.png?v=2',
+    'dashboard': 'assets/images/admin/dashboard-overview.png',
+    'orders': 'assets/images/admin/orders.png',
+    'print': 'assets/images/admin/order-print.png',
     'menu': 'assets/images/admin/menu-management.png',
-    'analytics': 'assets/images/admin/analytics-preview.svg',
-    'revenue': 'assets/images/admin/revenue-preview.svg'
+    'analytics': 'assets/images/admin/analytics.png',
+    'revenue': 'assets/images/admin/revenue.png'
 };
 
 const adminScreenContent = {
@@ -553,7 +654,14 @@ adminTabs.forEach(tab => {
         }
     });
 });
-enableAutoScreenRotation(adminTabs);
+enableSectionScreenRotation({
+    sectionSelector: '#admin-app',
+    tabs: adminTabs,
+    containerSelector: '.admin-dashboard-interactive',
+    initialTab: 0,
+    waitDelayMs: 4500,
+    rotationIntervalMs: 5500
+});
 
 // Interactive 3D Tilt on Feature Cards and Device Frames
 document.querySelectorAll('.feature-card, .problem-card, .step-card, .screen-showcase-card').forEach(card => {
@@ -695,3 +803,9 @@ if (btnSimulate) {
         }, 1500);
     });
 }
+
+// Open legal policies and external links in new tab
+document.querySelectorAll('a[href*="privacy-policy"], a[href*="terms"]').forEach(link => {
+    link.setAttribute('target', '_blank');
+    link.setAttribute('rel', 'noopener noreferrer');
+});
