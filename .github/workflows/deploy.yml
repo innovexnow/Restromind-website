@@ -36,17 +36,24 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID || 'team_7YvJIbVcbfvvryNY42xVzM2i' }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID || 'prj_til6G5Ce0Q8VmgHrcVkZj2hvi9An' }}
         run: |
-          if [ -n "$VERCEL_TOKEN" ]; then
-            echo "🚀 VERCEL_TOKEN detected. Installing Vercel CLI and deploying..."
-            npm install --global vercel@latest
-            echo "Pulling project configuration..."
-            vercel pull --yes --environment=production --token=$VERCEL_TOKEN
-            echo "Building production deployment..."
-            vercel build --prod --token=$VERCEL_TOKEN
-            echo "Publishing to production..."
-            vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
-            echo "✅ Deployment via Vercel CLI completed successfully!"
-          else
-            echo "ℹ️  Notice: VERCEL_TOKEN secret is not configured in GitHub Secrets."
-            echo "✅ Build verification passed successfully. Deployment is handled automatically by native Vercel GitHub Integration or local CLI."
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "::error::VERCEL_TOKEN secret is missing in GitHub Repository Secrets!"
+            echo "::notice::To enable automatic production deployments for all developers:"
+            echo "1. Go to https://vercel.com/account/tokens and generate a token (Scope: innovexnow-7923's projects)."
+            echo "2. Add it as 'VERCEL_TOKEN' in https://github.com/innovexnow/Restromind-website/settings/secrets/actions"
+            echo "OR connect GitHub directly in Vercel Dashboard at https://vercel.com/innovexnow-7923s-projects/restromind-website/settings/git"
+            exit 1
           fi
+
+          echo "🚀 VERCEL_TOKEN detected. Installing Vercel CLI..."
+          npm install --global vercel@latest
+
+          echo "Pulling Vercel project configuration..."
+          vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+
+          echo "Building production deployment..."
+          vercel build --prod --token=$VERCEL_TOKEN
+
+          echo "Publishing to production..."
+          vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
+          echo "✅ Production deployment completed successfully on Vercel!"
