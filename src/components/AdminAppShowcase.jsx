@@ -4,9 +4,9 @@ const adminScreenMap = {
   'dashboard': 'assets/images/admin/dashboard-overview.png?v=sharp',
   'orders': 'assets/images/admin/orders.png?v=sharp',
   'print': 'assets/images/admin/order-print.png?v=sharp',
-  'menu': 'assets/images/admin/menu-management.png?v=sharp',
-  'analytics': 'assets/images/admin/analytics.png?v=sharp',
-  'revenue': 'assets/images/admin/revenue.png?v=sharp'
+  'menu': 'assets/images/admin/menu-management-screen.png?v=menu_fill_v3',
+  'analytics': 'assets/images/admin/analytics.png?v=new_theme_v2',
+  'revenue': 'assets/images/admin/revenue.png?v=new_theme_v2'
 };
 
 const adminScreenContent = {

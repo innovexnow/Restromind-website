@@ -2511,6 +2511,11 @@ section {
     display: block;
 }
 
+.screen-showcase-card[data-screen="admin-menu-manager"] .card-screen-wrap > img {
+    /* Reframe the existing Menu Manager screenshot past its oversized top canvas margin. */
+    object-position: center 70%;
+}
+
 .screen-img-hero {
     width: 100%;
     height: 100%;
@@ -2837,8 +2842,9 @@ section {
 .admin-phone-frame img.admin-img-display {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top center;
+    object-fit: contain;
+    object-position: center;
+    background: #f8fafc;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -2846,6 +2852,12 @@ section {
     border-radius: 39px;
     image-rendering: -webkit-optimize-contrast;
     transition: opacity 0.3s ease;
+}
+
+.admin-phone-frame img.admin-img-display[data-screen="menu"],
+.admin-phone-frame img.admin-img-display[data-screen="analytics"],
+.admin-phone-frame img.admin-img-display[data-screen="revenue"] {
+    object-fit: fill;
 }
 
 .admin-phone-glow {

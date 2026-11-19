@@ -25,35 +25,64 @@ export default function Features() {
     { img: 'assets/images/user/track-order.png', title: 'Live Order Status', sub: 'Kitchen Sync in Real-Time' },
     { img: 'assets/images/admin/dashboard-overview.png', title: 'Admin Dashboard', sub: 'Live Sales & Performance' },
     { img: 'assets/images/admin/orders.png', title: 'Kitchen Orders (KDS)', sub: 'Instant Dispatch to Kitchen' },
-    { img: 'assets/images/admin/menu-management.png', title: '1-Click Menu Control', sub: 'Price, Stock & Dish Toggles' }
+    { img: 'assets/images/admin/menu-management.png?v=menu-manager-fit', title: '1-Click Menu Control', sub: 'Price, Stock & Dish Toggles', screen: 'admin-menu-manager' }
   ];
 
   useEffect(() => {
     const el = carouselRef.current;
     if (!el) return;
 
-    let timer;
+    let timer = null;
+    let isInView = false;
+    let isHovered = false;
+
+    const stop = () => {
+      if (timer) clearInterval(timer);
+      timer = null;
+    };
+
+    const start = () => {
+      stop();
+      if (!isInView || isHovered) return;
+      timer = setInterval(scrollStep, 3500);
+    };
+
     const scrollStep = () => {
       if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 10) {
-        el.scrollTo({ left: 0, behavior: 'smooth' });
+        el.scrollTo({ left: 0, behavior: 'instant' });
       } else {
         el.scrollBy({ left: 260, behavior: 'smooth' });
       }
     };
 
-    timer = setInterval(scrollStep, 3500);
+    const observer = new IntersectionObserver(([entry]) => {
+      const entered = entry.isIntersecting && !isInView;
+      isInView = entry.isIntersecting;
+      stop();
 
-    const onMouseEnter = () => clearInterval(timer);
+      if (entered) {
+        el.scrollTo({ left: 0, behavior: 'instant' });
+        start();
+      }
+    }, { threshold: 0.2 });
+
+    observer.observe(el);
+
+    const onMouseEnter = () => {
+      isHovered = true;
+      stop();
+    };
     const onMouseLeave = () => {
-      clearInterval(timer);
-      timer = setInterval(scrollStep, 3500);
+      isHovered = false;
+      start();
     };
 
     el.addEventListener('mouseenter', onMouseEnter);
     el.addEventListener('mouseleave', onMouseLeave);
 
     return () => {
-      clearInterval(timer);
+      stop();
+      observer.disconnect();
       el.removeEventListener('mouseenter', onMouseEnter);
       el.removeEventListener('mouseleave', onMouseLeave);
     };
@@ -88,7 +117,7 @@ export default function Features() {
           </div>
           <div className="screens-carousel" ref={carouselRef} role="region" aria-label="RestroMind app screen previews" tabIndex={0}>
             {screens.map((s, idx) => (
-              <div className="screen-showcase-card" key={idx}>
+              <div className="screen-showcase-card" key={idx} data-screen={s.screen}>
                 <div className="card-screen-wrap">
                   <img src={s.img} alt={s.title} />
                 </div>

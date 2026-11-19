@@ -40,7 +40,8 @@ export default defineConfig({
     }
   ],
   server: {
-    port: 5173,
+    host: '::',
+    port: 8080,
     open: false
   },
   build: {

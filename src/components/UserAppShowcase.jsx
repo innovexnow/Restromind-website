@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const userScreenMap = {
   'explore': 'assets/images/user/explore.png?v=original_v1',
-  'restaurant': 'assets/images/user/restaurant-detail.png?v=original_v1',
+  'restaurant': 'assets/images/user/restaurant-detail.png?v=restaurant_menu_v3',
   'dish': 'assets/images/user/dish-detail.png?v=original_v1',
   'cart': 'assets/images/user/cart.png?v=original_v1',
   'track': 'assets/images/user/track-order.png?v=original_v1',
@@ -142,6 +142,7 @@ export default function UserAppShowcase() {
                       src={userScreenMap[activeTab]} 
                       alt="RestroMind User App" 
                       className="screen-img-display fade-in" 
+                      data-screen={activeTab}
                     />
                   </div>
                   <div className="phone-home-indicator"></div>
