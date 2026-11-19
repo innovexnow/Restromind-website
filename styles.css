@@ -1971,6 +1971,45 @@ section {
     min-height: 120px;
 }
 
+.required-star {
+    color: #ef4444;
+    font-weight: 700;
+    margin-left: 2px;
+}
+
+.form-group.has-error input,
+.form-group.has-error textarea {
+    border-color: #ef4444 !important;
+    background-color: #fff8f8;
+}
+
+.form-group.has-error input:focus,
+.form-group.has-error textarea:focus {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15) !important;
+}
+
+.form-group.has-success input,
+.form-group.has-success textarea {
+    border-color: #10b981;
+}
+
+.form-field-error {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #dc2626;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 6px;
+    line-height: 1.4;
+}
+
+.form-field-error i {
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
 .form-note {
     text-align: center;
     font-size: 13px;

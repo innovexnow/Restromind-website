@@ -20,8 +20,27 @@ export default async function handler(req, res) {
     const restaurant = clean(req.body?.restaurant, 160);
     const city = clean(req.body?.city, 120);
     const message = clean(req.body?.message, 5000);
-    if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !phone || !message) {
-        return res.status(400).json({ error: 'Please provide valid contact details and a message' });
+
+    // Strict regex validation
+    const nameRegex = /^[a-zA-Z\s'.\-]{2,60}$/;
+    if (!name || !nameRegex.test(name)) {
+        return res.status(400).json({ error: 'Please enter a valid full name (letters only, min 2 characters)' });
+    }
+
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!email || !emailRegex.test(email)) {
+        return res.status(400).json({ error: 'Please enter a valid email address' });
+    }
+
+    const cleanPhone = phone.replace(/[\s\-\(\)]/g, '');
+    const isIndian = /^(?:\+91|0)?[6-9]\d{9}$/.test(cleanPhone);
+    const isIntl = /^\+[1-9]\d{9,14}$/.test(cleanPhone);
+    if (!cleanPhone || (!isIndian && !isIntl)) {
+        return res.status(400).json({ error: 'Please enter a valid 10-digit mobile number' });
+    }
+
+    if (!message || message.length < 10) {
+        return res.status(400).json({ error: 'Please enter a message of at least 10 characters' });
     }
 
     const port = Number(SMTP_PORT);
