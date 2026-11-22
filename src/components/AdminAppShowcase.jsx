@@ -4,9 +4,9 @@ const adminScreenMap = {
   'dashboard': 'assets/images/admin/dashboard-overview.png?v=sharp',
   'orders': 'assets/images/admin/orders.png?v=sharp',
   'print': 'assets/images/admin/order-print.png?v=sharp',
-  'menu': 'assets/images/admin/menu-management-screen.png?v=menu_fill_v3',
-  'analytics': 'assets/images/admin/analytics.png?v=new_theme_v2',
-  'revenue': 'assets/images/admin/revenue.png?v=new_theme_v2'
+  'menu': 'assets/images/admin/menu-management.png?v=sharp',
+  'analytics': 'assets/images/admin/analytics.png?v=sharp',
+  'revenue': 'assets/images/admin/revenue.png?v=sharp'
 };
 
 const adminScreenContent = {
@@ -99,6 +99,14 @@ export default function AdminAppShowcase() {
   const [isHovered, setIsHovered] = useState(false);
   const sectionRef = useRef(null);
 
+  // Preload all admin screen images on mount for instant zero-lag switching
+  useEffect(() => {
+    Object.values(adminScreenMap).forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
   // 1. Detect when section enters or leaves viewport
   useEffect(() => {
     const el = sectionRef.current;
@@ -169,17 +177,18 @@ export default function AdminAppShowcase() {
               {/* Left: Device Mockup */}
               <div className="admin-device-wrapper">
                 <div className="admin-phone-frame">
-                  <div className="admin-phone-dynamic-island"><span className="camera-lens"></span></div>
                   <div className="admin-phone-screen">
-                    <img 
-                      key={activeTab}
-                      src={adminScreenMap[activeTab]} 
-                      alt="RestroMind Admin Dashboard" 
-                      className="admin-img-display fade-in" 
-                      data-screen={activeTab}
-                    />
+                    {tabs.map(t => (
+                      <img 
+                        key={t.key}
+                        src={adminScreenMap[t.key]} 
+                        alt={`RestroMind Admin - ${t.label}`} 
+                        className={`admin-img-display ${activeTab === t.key ? 'active' : ''}`} 
+                        data-screen={t.key}
+                        loading="eager"
+                      />
+                    ))}
                   </div>
-                  <div className="admin-phone-home-indicator"></div>
                   <div className="admin-phone-glow"></div>
                 </div>
               </div>

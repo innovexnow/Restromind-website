@@ -24,6 +24,14 @@ export default function UserAppShowcase() {
   const [isHovered, setIsHovered] = useState(false);
   const sectionRef = useRef(null);
 
+  // Preload all user screen images on mount for instant zero-lag switching
+  useEffect(() => {
+    Object.values(userScreenMap).forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
   // 1. Detect when section enters or leaves viewport
   useEffect(() => {
     const el = sectionRef.current;
@@ -135,17 +143,18 @@ export default function UserAppShowcase() {
               </div>
               <div className="showcase-phone-main">
                 <div className="phone-frame modern">
-                  <div className="phone-dynamic-island"><span className="camera-lens"></span></div>
                   <div className="phone-screen phone-screen-img">
-                    <img 
-                      key={activeTab}
-                      src={userScreenMap[activeTab]} 
-                      alt="RestroMind User App" 
-                      className="screen-img-display fade-in" 
-                      data-screen={activeTab}
-                    />
+                    {tabs.map(t => (
+                      <img 
+                        key={t.key}
+                        src={userScreenMap[t.key]} 
+                        alt={`RestroMind User App - ${t.label}`} 
+                        className={`screen-img-display ${activeTab === t.key ? 'active' : ''}`} 
+                        data-screen={t.key}
+                        loading="eager"
+                      />
+                    ))}
                   </div>
-                  <div className="phone-home-indicator"></div>
                 </div>
                 <div className="phone-glow"></div>
               </div>
