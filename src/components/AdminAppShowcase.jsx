@@ -4,7 +4,7 @@ const adminScreenMap = {
   'dashboard': 'assets/images/admin/dashboard-overview.png?v=sharp',
   'orders': 'assets/images/admin/orders.png?v=sharp',
   'print': 'assets/images/admin/order-print.png?v=sharp',
-  'menu': 'assets/images/admin/menu-management.png?v=sharp',
+  'menu': 'assets/images/admin/menu-management.png?v=sharp2',
   'analytics': 'assets/images/admin/analytics.png?v=sharp',
   'revenue': 'assets/images/admin/revenue.png?v=sharp'
 };
